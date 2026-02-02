@@ -1,0 +1,47 @@
+:root {
+    --gap: 24px;
+    --content-gap: 20px;
+    --nav-width: 1024px;
+    --main-width: 720px;
+    --header-height: 60px;
+    --footer-height: 60px;
+    --radius: 8px;
+
+    /* Light (slightly lavender, still neutral) */
+    --theme: rgb(250, 248, 255);
+    --entry: rgb(248, 245, 252);
+    --primary: rgb(35, 30, 55);
+    --secondary: rgb(110, 105, 135);
+    --tertiary: rgb(215, 210, 235);
+    --content: rgb(40, 35, 60);
+    --code-block-bg: rgb(240, 235, 250);
+    --code-bg: rgb(245, 242, 252);
+    --border: rgb(225, 220, 240);
+}
+
+.dark {
+    /* Deep dark purple (NOT pure black → avoids broken pages) */
+    --theme: rgb(12, 10, 20);
+    --entry: rgb(16, 14, 26);
+
+    /* Text */
+    --primary: rgb(220, 215, 240);
+    --secondary: rgb(165, 160, 195);
+    --content: rgb(200, 195, 220);
+
+    /* UI layers */
+    --tertiary: rgb(30, 26, 46);
+    --border: rgb(60, 55, 90);
+
+    /* Code / list backgrounds */
+    --code-block-bg: rgb(20, 18, 32);
+    --code-bg: rgb(20, 18, 32);
+}
+
+.list {
+    background: var(--code-bg);
+}
+
+.dark.list {
+    background: var(--theme);
+}

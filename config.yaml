@@ -1,0 +1,186 @@
+baseURL: "https://adhikariashwin0.com.np"
+languageCode: en-us 
+title: the008Ki11er 
+theme: ["PaperMod"]
+
+taxonomies:
+  category: categories
+  tag: tags
+
+
+enableInlineShortcodes: true
+enableRobotsTXT: false
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+mainsections: ["posts", "writeups"]
+
+minify:
+  disableXML: true
+  # minifyOutput: true
+
+pagination:
+  disableAliases: false
+  pagerSize: 5
+
+menu:
+  main:
+    - identifier: about
+      name: About
+      url: /about
+      weight: 10
+    - identifier: writeup
+      name: Writeup
+      url: /writeups
+      weight: 20
+    - identifier: projects
+      name: Projects
+      url: /projects
+      weight: 30
+    - identifier: experience
+      name: Experience
+      url: /experience
+      weight: 40
+    - identifier: search
+      name: Search
+      url: /search
+      weight: 50
+    - identifier: tags
+      name: Tags
+      url: /tags
+      weight: 60
+
+
+
+params:
+  
+  # theme
+  DateFormat: "January 2, 2006"
+  showToc: false
+  TocOpen: false
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  hideMeta: false
+  ShowShareButtons: false
+  ShowReadingTime: false
+  ShowRssButtonInSectionTermList: false
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  images: ["papermod-cover.png"]
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  tocopen: false
+
+  # label:
+  #   icon: "icon.png"
+  #   iconHeight: 35
+
+  # for enchanced SEO
+  env: production
+  defaultTheme: auto
+
+  # Home Page
+  profileMode:
+    enabled: true
+    title: "Ashwin Adhikari"
+    subtitle: Security Enthusiast | CTF Player 
+
+ 
+    imageUrl: "profilelogo.png"
+    imageWidth: 120
+    imageHeight: 120
+    # buttons:
+    #   - name: Resume
+    #     url: ""
+    buttons:
+      - name: Writeups
+        url: writeups
+      - name: Archives
+        url: archives
+      - name: Resume
+        url: /cv.pdf
+  
+
+  # List View
+  hideDescriptionInList: false
+
+  # cover image for posts
+  cover:
+    hiddenInList: false # hide on list pages and home
+    hiddenInSingle: false # hide on single page
+
+  socialIcons:
+    - name: "email"
+      url: "mailto:adhikariaswin7@gmail.com"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/ashwinadhikari"
+    - name: "github"
+      url: "https://github.com/the008killer"
+    - name: Discord
+      title: Join with me
+      url: "https://discord.com/users/723809046708224101"
+    - name: X
+      title: X.com
+      url: "https://x.com/adhikariaswin7/"
+    - name: tryhackme
+      title: TryHackMe
+      url: "https://tryhackme.com/p/ashwin16"
+    - name: hackthebox
+      title: HackTheBox
+      url: "https://app.hackthebox.com/users/1688853"
+    - name: ctftime
+      title: CTFtime
+      url: "https://ctftime.org/user/193924"
+   
+    
+  # text search
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+  
+  assets:
+  #  disableHLJS: true
+       favicon: "/favicon.ico"
+       favicon16x16: "/favicon-16x16.png"
+       favicon32x32: "/favicon-32x32.png"
+       apple_touch_icon: "/apple-touch-icon.png"
+
+# for search using Fuse.js
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# allow HTML in MD
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+
+# pygmentsUseClasses: true
+# markup:
+#   highlight:
+#     noClasses: false
+#     # anchorLineNos: true
+#     codeFences: true
+#     guessSyntax: true
+#     lineNos: false
+#     style: monokai
+
+services:
+  instagram:
+    disableInlineCSS: true
+  x:
+    disableInlineCSS: true

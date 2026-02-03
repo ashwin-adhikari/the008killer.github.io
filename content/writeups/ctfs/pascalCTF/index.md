@@ -32,7 +32,7 @@ This was an online marketplace. An interesting thing was that there was a ```Fak
 
 **Code Analysis:**
 
-```
+```texttext
 .
 ├── challenge.zip
 └── src
@@ -93,7 +93,7 @@ This challenge has a upload portal to upload ```.pasx``` (XML file extension) an
 
 **Code Analysis:**
 
-```
+```text
 .
 ├── app.py
 ├── docker-compose.yml

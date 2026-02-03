@@ -6,5 +6,5 @@ hidemeta: true
 cascade:   
     showDate: false
 cover:
-  image: "./feature.png"
+  image: "feature.png"
 ---

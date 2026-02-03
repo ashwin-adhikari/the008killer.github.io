@@ -147,3 +147,8 @@ This challenge gave us the audio of ```Brr Brr Patapim``` song from Italian brai
 ```OPEN A TICKET SAYING YOU LOVE BLAISE PASCAL TO GET THE FLAG```
 ![Text](assets/stinkySlim_solution.png)
 
+## PWN
+
+### YetAnotherNoteTaker
+![Notetaker](assets/notetaker.png)
+

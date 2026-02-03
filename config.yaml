@@ -32,7 +32,7 @@ menu:
       url: /about
       weight: 10
     - identifier: writeup
-      name: Writeup
+      name: Writeups
       url: /writeups
       weight: 20
     - identifier: projects

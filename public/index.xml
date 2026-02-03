@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>the008Ki11er</title>
-    <link>http://localhost:60243/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on the008Ki11er</description>
     <image>
       <title>the008Ki11er</title>
-      <url>http://localhost:60243/papermod-cover.png</url>
-      <link>http://localhost:60243/papermod-cover.png</link>
+      <url>http://localhost:1313/papermod-cover.png</url>
+      <link>http://localhost:1313/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.155.2</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 04 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:60243/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pascal CTF</title>
-      <link>http://localhost:60243/writeups/ctfs/pascalctf/</link>
+      <link>http://localhost:1313/writeups/ctfs/pascalctf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:60243/writeups/ctfs/pascalctf/</guid>
+      <guid>http://localhost:1313/writeups/ctfs/pascalctf/</guid>
       <description>PascalCTF is a cybersecurity event organized by high school students to attract other students to the world of CTFs. The categories included Miscellaneous, Cryptography, Web Security, Reverse Engineering, Artificial Intelligence and Binary Exploitation</description>
     </item>
     <item>
       <title>SMS Based Vehicle Tracking</title>
-      <link>http://localhost:60243/projects/sms-vehicle-tracking/</link>
+      <link>http://localhost:1313/projects/sms-vehicle-tracking/</link>
       <pubDate>Wed, 03 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:60243/projects/sms-vehicle-tracking/</guid>
+      <guid>http://localhost:1313/projects/sms-vehicle-tracking/</guid>
       <description>A vehicle tracking system that uses SMS for real-time location updates and monitoring</description>
     </item>
     <item>
       <title>Cryptopals Challenges</title>
-      <link>http://localhost:60243/projects/cryptopals/</link>
+      <link>http://localhost:1313/projects/cryptopals/</link>
       <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:60243/projects/cryptopals/</guid>
+      <guid>http://localhost:1313/projects/cryptopals/</guid>
       <description>A collection of cryptography challenges designed to teach the fundamentals of cryptography through practical exercises</description>
     </item>
     <item>
       <title>NeRF and 3D Gaussian Splatting</title>
-      <link>http://localhost:60243/projects/nerf-3dgs/</link>
+      <link>http://localhost:1313/projects/nerf-3dgs/</link>
       <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:60243/projects/nerf-3dgs/</guid>
+      <guid>http://localhost:1313/projects/nerf-3dgs/</guid>
       <description>A research project comparing Neural Radiance Fields (NeRF) and 3D Gaussian Splatting for 3D scene reconstruction</description>
     </item>
     <item>
       <title>Holiday Remainder</title>
-      <link>http://localhost:60243/projects/holiday-remainder/</link>
+      <link>http://localhost:1313/projects/holiday-remainder/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:60243/projects/holiday-remainder/</guid>
+      <guid>http://localhost:1313/projects/holiday-remainder/</guid>
       <description>A web application that allows us to view upcoming holidays and events</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:60243/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:60243/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>&lt;h1 id=&#34;about-me&#34;&gt;About Me&lt;/h1&gt;
 &lt;h2 id=&#34;hello-im-ashwin-adhikari&#34;&gt;Hello! I&amp;rsquo;m Ashwin Adhikari👋&lt;/h2&gt;
 &lt;p&gt;I am a graduate in &lt;strong&gt;Electronics, Information &amp;amp; Communication Engineering&lt;/strong&gt; from IOE Paschimanchal Campus, Tribhuwan University. I am a passionate cybersecurity enthusiast, inclined towards offensive security.&lt;/p&gt;
@@ -62,22 +62,22 @@
 &lt;li&gt;&lt;strong&gt;Cybersecurity &amp;amp; Hacking:&lt;/strong&gt; CTF challenges&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Other Interests:&lt;/strong&gt; Networking, Sports&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;For Further info:&lt;/strong&gt; &lt;a href=&#34;http://localhost:60243/experience&#34;&gt;(&lt;strong&gt;Experiences&lt;/strong&gt;)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;For Further info:&lt;/strong&gt; &lt;a href=&#34;http://localhost:1313/experience&#34;&gt;(&lt;strong&gt;Experiences&lt;/strong&gt;)&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;projects--achievements&#34;&gt;Projects &amp;amp; Achievements&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Participated in multiple &lt;strong&gt;CTFs&lt;/strong&gt;, including TryHackMe and HackTheBox&lt;/li&gt;
 &lt;li&gt;Continuously learning and experimenting with challenges&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;For Further info:&lt;/strong&gt; &lt;a href=&#34;http://localhost:60243/projects&#34;&gt;(&lt;strong&gt;Projects&lt;/strong&gt;)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;For Further info:&lt;/strong&gt; &lt;a href=&#34;http://localhost:1313/projects&#34;&gt;(&lt;strong&gt;Projects&lt;/strong&gt;)&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;certifications&#34;&gt;Certifications&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;a href=&#34;https://www.linkedin.com/in/ashwinadhikari&#34;&gt;Verify on my LinkedIn Profile&lt;/a&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:60243/experience/</link>
+      <link>http://localhost:1313/experience/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:60243/experience/</guid>
+      <guid>http://localhost:1313/experience/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Research Intern, WindPower Nepal&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Worked with data related to energy and power sectors&lt;/li&gt;

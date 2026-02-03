@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=60243&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,16 +9,16 @@
 <meta name="keywords" content="">
 <meta name="description" content="PascalCTF is a cybersecurity event organized by high school students to attract other students to the world of CTFs. The categories included Miscellaneous, Cryptography, Web Security, Reverse Engineering, Artificial Intelligence and Binary Exploitation">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:60243/writeups/ctfs/pascalctf/">
+<link rel="canonical" href="http://localhost:1313/writeups/ctfs/pascalctf/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.f0aeecef0c6bef020a9d5f83f42698478ee2a6e72d20fa4a1c2514cd7de8a85c.css" integrity="sha256-8K7s7wxr7wIKnV&#43;D9CaYR47ipuctIPpKHCUUzX3oqFw=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:60243/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:60243/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:60243/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:60243/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:60243/safari-pinned-tab.svg">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:60243/writeups/ctfs/pascalctf/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/ctfs/pascalctf/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,16 +70,16 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="http://localhost:60243/writeups/ctfs/pascalctf/">
+</script><meta property="og:url" content="http://localhost:1313/writeups/ctfs/pascalctf/">
   <meta property="og:site_name" content="the008Ki11er">
   <meta property="og:title" content="Pascal CTF">
   <meta property="og:description" content="PascalCTF is a cybersecurity event organized by high school students to attract other students to the world of CTFs. The categories included Miscellaneous, Cryptography, Web Security, Reverse Engineering, Artificial Intelligence and Binary Exploitation">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
-      <meta property="og:image" content="http://localhost:60243/papermod-cover.png">
+      <meta property="og:image" content="http://localhost:1313/papermod-cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://localhost:60243/papermod-cover.png">
+<meta name="twitter:image" content="http://localhost:1313/papermod-cover.png">
 <meta name="twitter:title" content="Pascal CTF">
 <meta name="twitter:description" content="PascalCTF is a cybersecurity event organized by high school students to attract other students to the world of CTFs. The categories included Miscellaneous, Cryptography, Web Security, Reverse Engineering, Artificial Intelligence and Binary Exploitation">
 
@@ -93,19 +93,19 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Writeups",
-      "item": "http://localhost:60243/writeups/"
+      "item": "http://localhost:1313/writeups/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "CTF",
-      "item": "http://localhost:60243/writeups/ctfs/"
+      "item": "http://localhost:1313/writeups/ctfs/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "Pascal CTF",
-      "item": "http://localhost:60243/writeups/ctfs/pascalctf/"
+      "item": "http://localhost:1313/writeups/ctfs/pascalctf/"
     }
   ]
 }
@@ -120,21 +120,21 @@
   "keywords": [
     
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": "Web Challenges JSHit This was a straightforward challenge that included a JSFuck language. Just needed to decode the text. Used dcode.fr to decode the text and get the flag: ZazaStore This was an online marketplace. An interesting thing was that there was a FakeZa product which gave a fake flag, it hinted me that the real flag was RealZa product. Code Analysis:\n.\r├── challenge.zip\r└── src\r├── app\r│ ├── package.json\r│ ├── package-lock.json\r│ ├── public\r│ │ ├── images\r│ │ │ ├── CartoonZa.png\r│ │ │ ├── ElectricZa.jpeg\r│ │ │ ├── FakeZa.jpeg\r│ │ │ ├── RealZa.jpeg\r│ │ │ └── ZazaIsBad.png\r│ │ └── style\r│ │ └── style.css\r│ ├── server.js\r│ └── views\r│ ├── cart.ejs\r│ ├── index.ejs\r│ ├── inventory.ejs\r│ └── login.ejs\r├── docker-compose.yml\r└── Dockerfile The /add-cart function didnot validate the product so i noticed the logic flaw. Firstly i tried to exploit a logic flaw in how JavaScript handles NaN (Not-a-Number) during comparisons. The prices object only contains specific keys (FakeZa, ElectricZa, etc.). The /add-cart route does not check if the product we are adding is actually a valid item in the store.\nAdd the flag to cart: {\"product\": \"RealZa\", \"quantity\": 1}. Add a fake product that doesn’t exist in the prices object: {\"product\": \"Exploit\", \"quantity\": 1}. When we checkout, the code tries to calculate: prices[\"Exploit\"] * 1. Since prices[\"Exploit\"] is undefined, the math becomes undefined * 1, which results in NaN. total becomes NaN, the balance check is bypassed, and the items are added to the inventory. Travel Playlist The site takes the number 1 to 7 and fetches the song or video from youtube based on that index via /api/get_json\nVulnerability:\nThis challenge is a classic Path Traversal (or Directory Traversal) vulnerability. The description tells the flag is located at /app/flag.txt. I simply changed the index value with ../flag.txt which gave the flag. PDFile This challenge has a upload portal to upload .pasx (XML file extension) and convert it to PDF.\nCode Analysis:\n.\r├── app.py\r├── docker-compose.yml\r├── Dockerfile\r├── requirements.txt\r└── templates\r└── index.html The main logic and the major flaw is in this: The sanitize function checks the .pasx file if there are blacklist words, but it first converts each word to lowercase. We can bypass it by URL Encoding flag which becomes %66%6c%61%67 in the xml file.\nFirst we create a exploit.pasx file which includes \u003c?xml version=\"1.0\"?\u003e \u003c!DOCTYPE book [ \u003c!ENTITY xxe SYSTEM \"/app/%66%6c%61%67.txt\"\u003e ]\u003e \u003cbook\u003e \u003ctitle\u003e\u0026xxe;\u003c/title\u003e \u003cauthor\u003eTest\u003c/author\u003e \u003cchapters\u003e\u003c/chapters\u003e \u003c/book\u003e Upload it to the portal which will give flag in title Misc Geoguesser It is an OSINT challenge where we have to find the geolocation where the image was taken. Starting off with Google Images and Yandex. Firstly i tried to find the countries where the traffic delineator post like in the image (trying to pull off like Ranibolt) but it was too generic.\nThen I tried the buildings in the scene. It straight away gave away the location. Using google map to pinpoint location we found the exact place where image was taken: Stinky Slim This challenge gave us the audio of Brr Brr Patapim song from Italian brainrot meme. Analysing the audio using Sonic Analyser Spectrogram gave away the instruction to get the flag. OPEN A TICKET SAYING YOU LOVE BLAISE PASCAL TO GET THE FLAG ",
+  "wordCount" : "557",
   "inLanguage": "en",
-  "image": "http://localhost:60243/papermod-cover.png","datePublished": "0001-01-01T00:00:00Z",
+  "image": "http://localhost:1313/papermod-cover.png","datePublished": "0001-01-01T00:00:00Z",
   "dateModified": "0001-01-01T00:00:00Z",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:60243/writeups/ctfs/pascalctf/"
+    "@id": "http://localhost:1313/writeups/ctfs/pascalctf/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "the008Ki11er",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:60243/favicon.ico"
+      "url": "http://localhost:1313/favicon.ico"
     }
   }
 }
@@ -156,7 +156,7 @@
 <header class="header sticky-header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:60243/" accesskey="h" title="the008Ki11er (Alt + H)">the008Ki11er</a>
+            <a href="http://localhost:1313/" accesskey="h" title="the008Ki11er (Alt + H)">the008Ki11er</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -184,32 +184,32 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:60243/about" title="About">
+                <a href="http://localhost:1313/about" title="About">
                     <span>About</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:60243/writeups" title="Writeup">
-                    <span>Writeup</span>
+                <a href="http://localhost:1313/writeups" title="Writeups">
+                    <span>Writeups</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:60243/projects" title="Projects">
+                <a href="http://localhost:1313/projects" title="Projects">
                     <span>Projects</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:60243/experience" title="Experience">
+                <a href="http://localhost:1313/experience" title="Experience">
                     <span>Experience</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:60243/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:60243/tags" title="Tags">
+                <a href="http://localhost:1313/tags" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -220,14 +220,156 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:60243/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:60243/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:60243/writeups/ctfs/">CTF</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/ctfs/">CTF</a></div>
     <h1 class="post-title entry-hint-parent">
       Pascal CTF
     </h1>
     <div class="post-description">
       PascalCTF is a cybersecurity event organized by high school students to attract other students to the world of CTFs. The categories included Miscellaneous, Cryptography, Web Security, Reverse Engineering, Artificial Intelligence and Binary Exploitation
     </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">‎ Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#web-challenges" aria-label="Web Challenges">Web Challenges</a><ul>
+                        
+                <li>
+                    <a href="#jshit" aria-label="JSHit">JSHit</a></li>
+                <li>
+                    <a href="#zazastore" aria-label="ZazaStore">ZazaStore</a></li>
+                <li>
+                    <a href="#travel-playlist" aria-label="Travel Playlist">Travel Playlist</a></li>
+                <li>
+                    <a href="#pdfile" aria-label="PDFile">PDFile</a></li></ul>
+                </li>
+                <li>
+                    <a href="#misc" aria-label="Misc">Misc</a><ul>
+                        
+                <li>
+                    <a href="#geoguesser" aria-label="Geoguesser">Geoguesser</a></li>
+                <li>
+                    <a href="#stinky-slim" aria-label="Stinky Slim">Stinky Slim</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="web-challenges">Web Challenges<a hidden class="anchor" aria-hidden="true" href="#web-challenges">#</a></h2>
+<h3 id="jshit">JSHit<a hidden class="anchor" aria-hidden="true" href="#jshit">#</a></h3>
+<p><img alt="jshit" loading="lazy" src="/writeups/ctfs/pascalctf/assets/jshit.png">
+This was a straightforward challenge that included a JSFuck language. Just needed to decode the text.
+<img alt="JSFusk Language" loading="lazy" src="/writeups/ctfs/pascalctf/assets/jsFusk.png"></p>
+<p>Used <a href="https://www.dcode.fr/jsfuck-language">dcode.fr</a> to decode the text and get the flag:
+<img alt="JSHit solve" loading="lazy" src="/writeups/ctfs/pascalctf/assets/jshitsolve.png"></p>
+<h3 id="zazastore">ZazaStore<a hidden class="anchor" aria-hidden="true" href="#zazastore">#</a></h3>
+<p><img alt="zazaStore" loading="lazy" src="/writeups/ctfs/pascalctf/assets/zazastore.png"></p>
+<p>This was an online marketplace. An interesting thing was that there was a <code>FakeZa</code> product which gave a fake flag, it hinted me that the real flag was <code>RealZa</code> product.
+<img alt="fake flag" loading="lazy" src="/writeups/ctfs/pascalctf/assets/zazaStore_fakeza.png"></p>
+<p><strong>Code Analysis:</strong></p>
+<pre tabindex="0"><code>.
+├── challenge.zip
+└── src
+    ├── app
+    │   ├── package.json
+    │   ├── package-lock.json
+    │   ├── public
+    │   │   ├── images
+    │   │   │   ├── CartoonZa.png
+    │   │   │   ├── ElectricZa.jpeg
+    │   │   │   ├── FakeZa.jpeg
+    │   │   │   ├── RealZa.jpeg
+    │   │   │   └── ZazaIsBad.png
+    │   │   └── style
+    │   │       └── style.css
+    │   ├── server.js
+    │   └── views
+    │       ├── cart.ejs
+    │       ├── index.ejs
+    │       ├── inventory.ejs
+    │       └── login.ejs
+    ├── docker-compose.yml
+    └── Dockerfile
+</code></pre><p>The <code>/add-cart</code> function didnot validate the product so i noticed the logic flaw.
+Firstly i tried to exploit a logic flaw in how JavaScript handles <code>NaN</code> (Not-a-Number) during comparisons.
+The prices object only contains specific keys (FakeZa, ElectricZa, etc.). The <code>/add-cart</code> route does not check if the product we are adding is actually a valid item in the store.</p>
+<ul>
+<li>Add the flag to cart: <code>{&quot;product&quot;: &quot;RealZa&quot;, &quot;quantity&quot;: 1}</code>.
+<img alt="RealZa" loading="lazy" src="/writeups/ctfs/pascalctf/assets/zazaStore_realza.png"></li>
+<li>Add a fake product that doesn&rsquo;t exist in the prices object: <code>{&quot;product&quot;: &quot;Exploit&quot;, &quot;quantity&quot;: 1}</code>.
+<img alt="Exploit" loading="lazy" src="/writeups/ctfs/pascalctf/assets/zazaStore_exploitza.png"></li>
+<li>When we checkout, the code tries to calculate: <code>prices[&quot;Exploit&quot;] * 1</code>.</li>
+<li>Since <code>prices[&quot;Exploit&quot;]</code> is undefined, the math becomes<code> undefined * 1</code>, which results in <code>NaN</code>.
+<img alt="Total" loading="lazy" src="/writeups/ctfs/pascalctf/assets/zazaStore_total.png"></li>
+<li><code>total</code> becomes <code>NaN</code>, the balance check is bypassed, and the items are added to the inventory.
+<img alt="Flag" loading="lazy" src="/writeups/ctfs/pascalctf/assets/zazaStore_flag.png"></li>
+</ul>
+<h3 id="travel-playlist">Travel Playlist<a hidden class="anchor" aria-hidden="true" href="#travel-playlist">#</a></h3>
+<p><img alt="Travel Playlist" loading="lazy" src="/writeups/ctfs/pascalctf/assets/travelPlaylist.png"></p>
+<p>The site takes the number <code>1 to 7</code> and fetches the song or video from youtube based on that <code>index</code> via <code>/api/get_json</code></p>
+<p><strong>Vulnerability:</strong><br>
+This challenge is a classic Path Traversal (or Directory Traversal) vulnerability.
+The description tells the flag is located at <code>/app/flag.txt</code>.
+<img alt="Travel Playlist index" loading="lazy" src="/writeups/ctfs/pascalctf/assets/travelPlaylist_index.png"></p>
+<p>I simply changed the index value with <code>../flag.txt</code> which gave the flag.
+<img alt="Flag" loading="lazy" src="/writeups/ctfs/pascalctf/assets/travelPlaylist_flag.png"></p>
+<h3 id="pdfile">PDFile<a hidden class="anchor" aria-hidden="true" href="#pdfile">#</a></h3>
+<p><img alt="PDFile" loading="lazy" src="/writeups/ctfs/pascalctf/assets/pdfFile.png"></p>
+<p>This challenge has a upload portal to upload <code>.pasx</code> (XML file extension) and convert it to PDF.</p>
+<p><strong>Code Analysis:</strong></p>
+<pre tabindex="0"><code>.
+├── app.py
+├── docker-compose.yml
+├── Dockerfile
+├── requirements.txt
+└── templates
+    └── index.html
+</code></pre><p>The main logic and the major flaw is in this:
+<img alt="Blacklist" loading="lazy" src="/writeups/ctfs/pascalctf/assets/pdfFile_blacklist.png"></p>
+<p>The <code>sanitize</code> function checks the <code>.pasx</code> file if there are blacklist words, but it first converts each word to lowercase. We can bypass it by URL Encoding <code>flag</code> which becomes <code>%66%6c%61%67</code> in the xml file.</p>
+<ul>
+<li>First we create a <code>exploit.pasx</code> file which includes</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE book [
+</span></span></span><span class="line"><span class="cl"><span class="cp">&lt;!ENTITY xxe SYSTEM &#34;/app/%66%6c%61%67.txt&#34;&gt;</span>
+</span></span><span class="line"><span class="cl">]&gt;
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">book</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="ni">&amp;xxe;</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">author</span><span class="p">&gt;</span>Test<span class="p">&lt;/</span><span class="nt">author</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">chapters</span><span class="p">&gt;&lt;/</span><span class="nt">chapters</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">book</span><span class="p">&gt;</span>
+</span></span></code></pre></div><ul>
+<li>Upload it to the portal which will give flag in title
+<img alt="alt text" loading="lazy" src="/writeups/ctfs/pascalctf/assets/pdfFile_flag.png"></li>
+</ul>
+<h2 id="misc">Misc<a hidden class="anchor" aria-hidden="true" href="#misc">#</a></h2>
+<h3 id="geoguesser">Geoguesser<a hidden class="anchor" aria-hidden="true" href="#geoguesser">#</a></h3>
+<p><img alt="geoguesser" loading="lazy" src="/writeups/ctfs/pascalctf/assets/geoguesser.png"></p>
+<p>It is an OSINT challenge where we have to find the geolocation where the image was taken.
+<img alt="challenge.png" loading="lazy" src="/writeups/ctfs/pascalctf/assets/geoguesser_challenge.png"></p>
+<p>Starting off with <code>Google Images</code> and <code>Yandex</code>. Firstly i tried to find the countries where the traffic delineator post like in the image (trying to pull off like <code>Ranibolt</code>) but it was too generic.</p>
+<p><img alt="road post" loading="lazy" src="/writeups/ctfs/pascalctf/assets/geoguesser_roadpost.png"></p>
+<p>Then I tried the buildings in the scene.
+<img alt="building" loading="lazy" src="/writeups/ctfs/pascalctf/assets/geoguesser_building.png"></p>
+<p>It straight away gave away the location.
+<img alt="Location" loading="lazy" src="/writeups/ctfs/pascalctf/assets/geoguesser_location.png">
+Using google map to pinpoint location we found the exact place where image was taken:
+<img alt="Cest La Vie Boutique, Malta" loading="lazy" src="/writeups/ctfs/pascalctf/assets/geoguesser_malta.png"></p>
+<h3 id="stinky-slim">Stinky Slim<a hidden class="anchor" aria-hidden="true" href="#stinky-slim">#</a></h3>
+<p><img alt="Stinky Slim" loading="lazy" src="/writeups/ctfs/pascalctf/assets/stinkySlim.png">
+This challenge gave us the audio of <code>Brr Brr Patapim</code> song from Italian brainrot meme. Analysing the audio using <code>Sonic Analyser Spectrogram</code> gave away the instruction to get the flag.
+<code>OPEN A TICKET SAYING YOU LOVE BLAISE PASCAL TO GET THE FLAG</code>
+<img alt="Text" loading="lazy" src="/writeups/ctfs/pascalctf/assets/stinkySlim_solution.png"></p>
+
+
+  </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
@@ -238,7 +380,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2026 <a href="http://localhost:60243/">the008Ki11er</a></span>
+    <span>&copy; 2026 <a href="http://localhost:1313/">the008Ki11er</a></span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

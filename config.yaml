@@ -19,7 +19,7 @@ mainsections: ["posts", "writeups"]
 
 minify:
   disableXML: true
-  # minifyOutput: true
+  # minifyOutput: tru
 
 pagination:
   disableAliases: false

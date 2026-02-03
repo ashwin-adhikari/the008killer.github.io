@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>NeRF on the008Ki11er</title>
-    <link>http://localhost:1313/tags/nerf/</link>
+    <link>https://www.adhikariashwin0.com.np/tags/nerf/</link>
     <description>Recent content in NeRF on the008Ki11er</description>
     <image>
       <title>the008Ki11er</title>
-      <url>http://localhost:1313/papermod-cover.png</url>
-      <link>http://localhost:1313/papermod-cover.png</link>
+      <url>https://www.adhikariashwin0.com.np/papermod-cover.png</url>
+      <link>https://www.adhikariashwin0.com.np/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.155.2</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 02 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/nerf/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.adhikariashwin0.com.np/tags/nerf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NeRF and 3D Gaussian Splatting</title>
-      <link>http://localhost:1313/projects/nerf-3dgs/</link>
+      <link>https://www.adhikariashwin0.com.np/projects/nerf-3dgs/</link>
       <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/nerf-3dgs/</guid>
+      <guid>https://www.adhikariashwin0.com.np/projects/nerf-3dgs/</guid>
       <description>A research project comparing Neural Radiance Fields (NeRF) and 3D Gaussian Splatting for 3D scene reconstruction</description>
     </item>
   </channel>

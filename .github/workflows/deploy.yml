@@ -81,6 +81,13 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+      - name: Build with Hugo
+        run: |
+          hugo \
+          --gc \
+          --minify \
+          --baseURL "https://www.adhikariashwin0.com.np/" \
+          --cacheDir "${{ runner.temp }}/hugo_cache"
 
   # Deployment job
   deploy:

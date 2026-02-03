@@ -31,6 +31,7 @@ This was an online marketplace. An interesting thing was that there was a ```Fak
 ![fake flag](assets/zazaStore_fakeza.png)
 
 **Code Analysis:**
+
 ```
 .
 ├── challenge.zip
@@ -91,6 +92,7 @@ I simply changed the index value with ```../flag.txt``` which gave the flag.
 This challenge has a upload portal to upload ```.pasx``` (XML file extension) and convert it to PDF.
 
 **Code Analysis:**
+
 ```
 .
 ├── app.py

@@ -7,5 +7,5 @@ hidemeta: true
 cascade:   
     showDate: false
 cover:
-  image: "feature.png"
+  image: "/writeups/HacktheBox/feature.png"
 ---

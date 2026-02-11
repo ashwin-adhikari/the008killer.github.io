@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>LACTF CTF 2026 | the008Ki11er</title>
+<meta name="keywords" content="">
+<meta name="description" content="LA CTF was organized from Sat, 07 Feb. 2026 to Mon, 09 Feb. 2026, featuring challenges from different categories like Cryptography, Miscelleaneous, Reverse Engineering, Pwn and Web Exploitation. I participated with my team Blue Lock Eleven, got 133/955 rank overall.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/writeups/ctfs/lactf2026/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f0aeecef0c6bef020a9d5f83f42698478ee2a6e72d20fa4a1c2514cd7de8a85c.css" integrity="sha256-8K7s7wxr7wIKnV&#43;D9CaYR47ipuctIPpKHCUUzX3oqFw=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/ctfs/lactf2026/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/writeups/ctfs/lactf2026/">
+  <meta property="og:site_name" content="the008Ki11er">
+  <meta property="og:title" content="LACTF CTF 2026">
+  <meta property="og:description" content="LA CTF was organized from Sat, 07 Feb. 2026 to Mon, 09 Feb. 2026, featuring challenges from different categories like Cryptography, Miscelleaneous, Reverse Engineering, Pwn and Web Exploitation. I participated with my team Blue Lock Eleven, got 133/955 rank overall.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+      <meta property="og:image" content="http://localhost:1313/papermod-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/papermod-cover.png">
+<meta name="twitter:title" content="LACTF CTF 2026">
+<meta name="twitter:description" content="LA CTF was organized from Sat, 07 Feb. 2026 to Mon, 09 Feb. 2026, featuring challenges from different categories like Cryptography, Miscelleaneous, Reverse Engineering, Pwn and Web Exploitation. I participated with my team Blue Lock Eleven, got 133/955 rank overall.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CTF",
+      "item": "http://localhost:1313/writeups/ctfs/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "LACTF CTF 2026",
+      "item": "http://localhost:1313/writeups/ctfs/lactf2026/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "LACTF CTF 2026",
+  "name": "LACTF CTF 2026",
+  "description": "LA CTF was organized from Sat, 07 Feb. 2026 to Mon, 09 Feb. 2026, featuring challenges from different categories like Cryptography, Miscelleaneous, Reverse Engineering, Pwn and Web Exploitation. I participated with my team Blue Lock Eleven, got 133/955 rank overall.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Web/Blogler There was a login and register page and after registering a user we get into this web page where we have config editor which seems to take in yaml configuration and another upload blog section.\nAnalysing the contents of blogler.zip . ├── app.py ├── Dockerfile ├── static │ ├── main.js │ └── style.css └── templates ├── blog.html ├── index.html └── login.html The core vulnerability in this challenge lies in a logic flaw within the validate_conf function combined with the behavior of the display_name function and YAML anchors. Vulnerability LFI Check Bypass: The validate_conf function attempts to prevent Path Traversal by checking if the string ../ exists in the filename and ensuring the resolved path stays within the blogs directory. However, it only validates the state of the configuration at that moment. Shared object via YAML Anchors: Using YAML anchors (\u0026 and *), we can make a blog entry and the user configuration point to the same dictionary object in memory. Bypassing display_name(): The display_name function capitalizes each part and joins them, If a part starts with a non-alphabetical character (like . or /), capitalize() does nothing. By using a sequence like .._/_, we can construct a path traversal string that doesn’t contain the literal ../ (thus bypassing the check) Exploit blogs: - \u0026exploit title: \"Flag\" name: \"_.._/_.._/_.._/_.._/_.._/_.._/_./flag\" user: *exploit The string _.._/_.._/_.._/_.._/_.._/_.._/_./flag does not contain ../. During validation, pathlib treats the underscores as part of the directory names. Because of the YAML anchor (\u0026exploit and *exploit), the user object and the first blog object are the same dictionary in memory. display_name() function splits by _ into ['', '..', '/', '..', '/', '..', '/', '..', '/', '..', '/', '..', '/', './flag']. It capitalizes each letter but .., and / remain unchanged. ./flag remains ./flag (because it starts with a dot). It joins them into: ../../../../../.././flag. And we get the flag Crypto/Smol Cats I was a straight forward challenge gave us modulus(n), cipher(c) and public exponent(e) and we have to decode cipher and give it message(m) in hex.\nI used factor.db to find the factors of the modulus.\nSolution Submit the Proof of work and copy and paste the n, c and e calculate factors of n # copy and paste n,c, e from the instance n = 605209181152683570305169059628442346702992350480092763486139 e = 65537 c = 466838744699655278218446173999183015046193150877209850221109 # from factordb calculate factors of n p = 710534900243921085712136360791 q = 851765593702603463836875015229 phi = (p - 1) * (q - 1) d = pow(e, -1, phi) m = pow(c, d, n) print(m) # output: 216414036956796911789754134326510711369461877745009347782076 # submit this value Misc/Cat Bomb! This was an OSINT challenge, we have cat-bomb.jpeg which shows us the location where photograph was taken. Using reverse image search we got the location of the image. Using Google maps to pinpoint the location. After much digging around Google Street View in Fushimi Inari Shrine, I finally found the exact location To get the exact digits, the maps has that exact 7 decimal places in the url portion: /@34.9681538,135.7773153\n",
+  "wordCount" : "496",
+  "inLanguage": "en",
+  "image": "http://localhost:1313/papermod-cover.png","datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/ctfs/lactf2026/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "the008Ki11er",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header sticky-header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="the008Ki11er (Alt + H)">the008Ki11er</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/writeups" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/experience" title="Experience">
+                    <span>Experience</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/ctfs/">CTF</a></div>
+    <h1 class="post-title entry-hint-parent">
+      LACTF CTF 2026
+    </h1>
+    <div class="post-description">
+      LA CTF was organized from Sat, 07 Feb. 2026 to Mon, 09 Feb. 2026, featuring challenges from different categories like Cryptography, Miscelleaneous, Reverse Engineering, Pwn and Web Exploitation. I participated with my team Blue Lock Eleven, got 133/955 rank overall.
+    </div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">‎ Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#webblogler" aria-label="Web/Blogler">Web/Blogler</a><ul>
+                        
+                <li>
+                    <a href="#analysing-the-contents-of-bloglerzip" aria-label="Analysing the contents of blogler.zip">Analysing the contents of blogler.zip</a><ul>
+                        
+                <li>
+                    <a href="#vulnerability" aria-label="Vulnerability">Vulnerability</a></li>
+                <li>
+                    <a href="#exploit" aria-label="Exploit">Exploit</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#cryptosmol-cats" aria-label="Crypto/Smol Cats">Crypto/Smol Cats</a><ul>
+                        
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li></ul>
+                </li>
+                <li>
+                    <a href="#misccat-bomb" aria-label="Misc/Cat Bomb!">Misc/Cat Bomb!</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="webblogler">Web/Blogler<a hidden class="anchor" aria-hidden="true" href="#webblogler">#</a></h2>
+<p><img alt="web-blogler" loading="lazy" src="/writeups/ctfs/lactf2026/assets/blogler.png"></p>
+<p>There was a login and register page and after registering a user we get into this web page where we have config editor which seems to take in yaml configuration and another upload blog section.</p>
+<p><img alt="web page" loading="lazy" src="/writeups/ctfs/lactf2026/assets/blogler_web.png"></p>
+<h3 id="analysing-the-contents-of-bloglerzip">Analysing the contents of blogler.zip<a hidden class="anchor" aria-hidden="true" href="#analysing-the-contents-of-bloglerzip">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── app.py
+</span></span><span class="line"><span class="cl">├── Dockerfile
+</span></span><span class="line"><span class="cl">├── static
+</span></span><span class="line"><span class="cl">│   ├── main.js
+</span></span><span class="line"><span class="cl">│   └── style.css
+</span></span><span class="line"><span class="cl">└── templates
+</span></span><span class="line"><span class="cl">    ├── blog.html
+</span></span><span class="line"><span class="cl">    ├── index.html
+</span></span><span class="line"><span class="cl">    └── login.html
+</span></span></code></pre></div><p>The core vulnerability in this challenge lies in a logic flaw within the <code>validate_conf</code> function combined with the behavior of the <code>display_name</code> function and <em><strong>YAML anchors</strong></em>.
+<img alt="Blogler bug" loading="lazy" src="/writeups/ctfs/lactf2026/assets/blogler_bug.png"></p>
+<h4 id="vulnerability">Vulnerability<a hidden class="anchor" aria-hidden="true" href="#vulnerability">#</a></h4>
+<ul>
+<li>LFI Check Bypass: The <code>validate_conf</code> function attempts to prevent Path Traversal by checking if the string <code>../</code> exists in the filename and ensuring the resolved path stays within the blogs directory. However, it only validates the state of the configuration at that moment.</li>
+<li>Shared object via YAML Anchors: Using YAML anchors (<code>&amp;</code> and <code>*</code>), we can make a blog entry and the user configuration point to the same dictionary object in memory.</li>
+<li>Bypassing <code>display_name()</code>: The <code>display_name</code> function capitalizes each part and joins them,  If a part starts with a non-alphabetical character (like <code>.</code> or <code>/</code>), <code>capitalize()</code> does nothing. By using a sequence like <code>.._/_</code>, we can construct a path traversal string that doesn&rsquo;t contain the literal <code>../</code> (thus bypassing the check)</li>
+</ul>
+<h4 id="exploit">Exploit<a hidden class="anchor" aria-hidden="true" href="#exploit">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">blogs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="cp">&amp;exploit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Flag&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;_.._/_.._/_.._/_.._/_.._/_.._/_./flag&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="cp">*exploit</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>The string <code>_.._/_.._/_.._/_.._/_.._/_.._/_./flag</code> does not contain <code>../</code>. During validation, pathlib treats the underscores as part of the directory names.</li>
+<li>Because of the YAML anchor (<code>&amp;exploit</code> and <code>*exploit</code>), the user object and the first blog object are the same dictionary in memory.</li>
+<li><code>display_name()</code> function splits by <code>_</code> into <code>['', '..', '/', '..', '/', '..', '/', '..', '/', '..', '/', '..', '/', './flag']</code>.</li>
+<li>It capitalizes each letter but  <code>..</code>, and <code>/</code> remain unchanged. <code>./flag</code> remains <code>./flag</code> (because it starts with a dot).
+It joins them into: <code>../../../../../.././flag.</code></li>
+<li>And we get the <code>flag</code></li>
+</ul>
+<h2 id="cryptosmol-cats">Crypto/Smol Cats<a hidden class="anchor" aria-hidden="true" href="#cryptosmol-cats">#</a></h2>
+<p><img alt="Smol cats" loading="lazy" src="/writeups/ctfs/lactf2026/assets/smolcats.png"></p>
+<p>I was a straight forward challenge gave us <code>modulus(n)</code>, <code>cipher(c)</code> and <code>public exponent(e)</code> and we have to decode cipher and give it <code>message(m)</code> in hex.</p>
+<p><img alt="instance" loading="lazy" src="/writeups/ctfs/lactf2026/assets/smolcats_instance.png"></p>
+<p>I used <a href="https://factordb.com">factor.db</a> to find the factors of the modulus.</p>
+<h3 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h3>
+<ul>
+<li>Submit the Proof of work and copy and paste the n, c and e</li>
+<li>calculate factors of n</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># copy and paste n,c, e from the instance</span>
+</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="mi">605209181152683570305169059628442346702992350480092763486139</span>
+</span></span><span class="line"><span class="cl"><span class="n">e</span> <span class="o">=</span> <span class="mi">65537</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="mi">466838744699655278218446173999183015046193150877209850221109</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># from factordb calculate factors of n</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="mi">710534900243921085712136360791</span>
+</span></span><span class="line"><span class="cl"><span class="n">q</span> <span class="o">=</span> <span class="mi">851765593702603463836875015229</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">q</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">m</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># output: 216414036956796911789754134326510711369461877745009347782076</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># submit this value</span>
+</span></span></code></pre></div><p><img alt="flag" loading="lazy" src="/writeups/ctfs/lactf2026/assets/smolcats_flag.png"></p>
+<h2 id="misccat-bomb">Misc/Cat Bomb!<a hidden class="anchor" aria-hidden="true" href="#misccat-bomb">#</a></h2>
+<p><img alt="cat bomb" loading="lazy" src="/writeups/ctfs/lactf2026/assets/catbomb.png"></p>
+<p>This was an OSINT challenge, we have <code>cat-bomb.jpeg</code> which shows us the location where photograph was taken.
+<img alt="given image" loading="lazy" src="/writeups/ctfs/lactf2026/assets/cat-bomb.jpeg"></p>
+<p>Using reverse image search we got the location of the image.
+<img alt="location" loading="lazy" src="/writeups/ctfs/lactf2026/assets/catbomb_location.png"></p>
+<p>Using Google maps to pinpoint the location. After much digging around <code>Google Street View</code> in Fushimi Inari Shrine, I finally found the exact location
+<img alt="Pinpoint" loading="lazy" src="/writeups/ctfs/lactf2026/assets/catbomb_solve.png"></p>
+<p>To get the exact digits, the maps has that exact 7 decimal places in the url portion:
+<code>&lt;REDACTED&gt;/@34.9681538,135.7773153&lt;REDACTED&gt;</code></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/writeups/ctfs/pascalctf/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Pascal CTF</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2026 <a href="http://localhost:1313/">the008Ki11er</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

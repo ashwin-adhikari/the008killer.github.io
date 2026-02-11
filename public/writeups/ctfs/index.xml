@@ -13,6 +13,13 @@
     <language>en-us</language>
     <atom:link href="http://localhost:1313/writeups/ctfs/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LACTF CTF 2026</title>
+      <link>http://localhost:1313/writeups/ctfs/lactf2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/ctfs/lactf2026/</guid>
+      <description>LA CTF was organized from Sat, 07 Feb. 2026 to Mon, 09 Feb. 2026, featuring challenges from different categories like Cryptography, Miscelleaneous, Reverse Engineering, Pwn and Web Exploitation. I participated with my team Blue Lock Eleven, got 133/955 rank overall.</description>
+    </item>
+    <item>
       <title>Pascal CTF</title>
       <link>http://localhost:1313/writeups/ctfs/pascalctf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

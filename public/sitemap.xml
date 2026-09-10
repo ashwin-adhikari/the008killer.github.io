@@ -79,6 +79,33 @@
     <loc>http://localhost:1313/tags/omnictf2026/</loc>
     <lastmod>2026-07-17T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/api/</loc>
+    <lastmod>2026-07-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/express/</loc>
+    <lastmod>2026-07-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/mr-robot/</loc>
+    <lastmod>2026-07-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/mr-robot_quotes_api/</loc>
+    <lastmod>2026-07-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/node.js/</loc>
+    <lastmod>2026-07-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/openrouter/</loc>
+    <lastmod>2026-07-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/</loc>
+    <lastmod>2026-07-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/svg/</loc>
+    <lastmod>2026-07-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/vercel/</loc>
+    <lastmod>2026-07-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/cve-2023-43208/</loc>
     <lastmod>2026-05-30T00:00:00+00:00</lastmod>
   </url><url>
@@ -149,9 +176,6 @@
     <lastmod>2024-01-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/projects/cryptopals/</loc>
-    <lastmod>2024-01-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/projects/</loc>
     <lastmod>2024-01-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/scripts/</loc>

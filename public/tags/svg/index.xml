@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SVG on the008Killer</title>
+    <link>http://localhost:1313/tags/svg/</link>
+    <description>Recent content in SVG on the008Killer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/svg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mr. Robot Quotes API</title>
+      <link>http://localhost:1313/projects/mr-robot_quotes_api/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/mr-robot_quotes_api/</guid>
+      <description>An AI-powered quote generator inspired by Mr. Robot, serving dark cinematic quotes as JSON and SVG cards for GitHub READMEs</description>
+    </item>
+    
+  </channel>
+</rss>

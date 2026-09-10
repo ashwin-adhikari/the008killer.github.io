@@ -8,7 +8,7 @@
     <language>en-us</language>
     
     
-    <lastBuildDate>Thu, 04 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SMS Based Vehicle Tracking</title>
       <link>http://localhost:1313/projects/sms-vehicle-tracking/</link>
@@ -16,6 +16,15 @@
       
       <guid>http://localhost:1313/projects/sms-vehicle-tracking/</guid>
       <description>A vehicle tracking system that uses SMS for real-time location updates and monitoring</description>
+    </item>
+    
+    <item>
+      <title>Mr. Robot Quotes API</title>
+      <link>http://localhost:1313/projects/mr-robot_quotes_api/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/mr-robot_quotes_api/</guid>
+      <description>An AI-powered quote generator inspired by Mr. Robot, serving dark cinematic quotes as JSON and SVG cards for GitHub READMEs</description>
     </item>
     
     <item>

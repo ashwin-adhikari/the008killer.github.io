@@ -100,6 +100,69 @@
     </item>
     
     <item>
+      <title>API</title>
+      <link>http://localhost:1313/tags/api/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Express</title>
+      <link>http://localhost:1313/tags/express/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/express/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mr-Robot</title>
+      <link>http://localhost:1313/tags/mr-robot/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/mr-robot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node.js</title>
+      <link>http://localhost:1313/tags/node.js/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/node.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenRouter</title>
+      <link>http://localhost:1313/tags/openrouter/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/openrouter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SVG</title>
+      <link>http://localhost:1313/tags/svg/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/svg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vercel</title>
+      <link>http://localhost:1313/tags/vercel/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/vercel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>CVE-2023-43208</title>
       <link>http://localhost:1313/tags/cve-2023-43208/</link>
       <pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate>

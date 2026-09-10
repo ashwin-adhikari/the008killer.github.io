@@ -100,6 +100,15 @@
     </item>
     
     <item>
+      <title>Mr. Robot Quotes API</title>
+      <link>http://localhost:1313/projects/mr-robot_quotes_api/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/mr-robot_quotes_api/</guid>
+      <description>An AI-powered quote generator inspired by Mr. Robot, serving dark cinematic quotes as JSON and SVG cards for GitHub READMEs</description>
+    </item>
+    
+    <item>
       <title>Cryptopals Challenges</title>
       <link>http://localhost:1313/projects/cryptopals/</link>
       <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Mr. Robot Quotes API | the008Killer</title>
+<meta name="keywords" content="Node.js, Express, Vercel, OpenRouter, SVG, API, Mr-Robot">
+<meta name="description" content="An AI-powered quote generator inspired by Mr. Robot, serving dark cinematic quotes as JSON and SVG cards for GitHub READMEs">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/projects/mr-robot_quotes_api/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e0ec520298f6c84b5b6a52f757391346c066b1d17f71c1ea9fa29811db7a0893.css" integrity="sha256-4OxSApj2yEtbalL3VzkTRsBmsdF/ccHqn6KYEdt6CJM=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/mr-robot_quotes_api/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/projects/mr-robot_quotes_api/">
+  <meta property="og:site_name" content="the008Killer">
+  <meta property="og:title" content="Mr. Robot Quotes API">
+  <meta property="og:description" content="An AI-powered quote generator inspired by Mr. Robot, serving dark cinematic quotes as JSON and SVG cards for GitHub READMEs">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2026-07-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-07-13T00:00:00+00:00">
+    <meta property="article:tag" content="Node.js">
+    <meta property="article:tag" content="Express">
+    <meta property="article:tag" content="Vercel">
+    <meta property="article:tag" content="OpenRouter">
+    <meta property="article:tag" content="SVG">
+    <meta property="article:tag" content="API">
+      <meta property="og:image" content="http://localhost:1313/papermod-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/papermod-cover.png">
+<meta name="twitter:title" content="Mr. Robot Quotes API">
+<meta name="twitter:description" content="An AI-powered quote generator inspired by Mr. Robot, serving dark cinematic quotes as JSON and SVG cards for GitHub READMEs">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Mr. Robot Quotes API",
+      "item": "http://localhost:1313/projects/mr-robot_quotes_api/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mr. Robot Quotes API",
+  "name": "Mr. Robot Quotes API",
+  "description": "An AI-powered quote generator inspired by Mr. Robot, serving dark cinematic quotes as JSON and SVG cards for GitHub READMEs",
+  "keywords": [
+    "Node.js", "Express", "Vercel", "OpenRouter", "SVG", "API", "Mr-Robot"
+  ],
+  "articleBody": "A full-stack AI quote API inspired by the TV series Mr. Robot. It generates dark, philosophical, hacker-style quotes and serves them as JSON endpoints and beautiful themed SVG cards — perfect for GitHub profile READMEs.\nI’ve always been a huge fan of Mr. Robot. The show’s atmosphere — paranoia, isolation, corporate control, and the quiet rebellion of people who see the system for what it really is — stuck with me long after finishing it. Elliot’s monologues, Mr. Robot’s rage, Whiterose’s obsession with time… it all felt like poetry written in code.\nThis project started as a simple idea: what if I could generate original quotes that felt like they belonged in that universe? I wanted something that wasn’t just a static list of fan quotes, but a living system — one that could create new lines every day, style them like a terminal, and drop them straight into a GitHub README as a glowing SVG card.\nFeatures AI-generated Mr. Robot style quotes (Elliot, Mr. Robot, Darlene, Whiterose) Instant local fallback quotes when AI is slow or unavailable Daily quote endpoint (same quote all day) Random quote endpoint (fresh every request) SVG quote cards with 25+ themes (Dracula, Tokyo Night, Nord, Catppuccin, Cyberpunk, and more) Live terminal UI to preview quotes and copy embed URLs Custom domain: quotes.adhikariashwin0.com.np GitHub Actions auto-updates README with the daily quote Tech Stack Node.js Express.js OpenRouter AI Vercel (serverless deployment) SVG generation with themed CSS Cloudflare DNS GitHub Actions API Endpoints GET /api/quote/random — Fresh random quote GET /api/quote/daily — Quote of the day GET /api/quote/svg?theme=mrrobot\u0026mode=daily — Styled SVG card Links Live API GitHub Repository ",
+  "wordCount" : "270",
+  "inLanguage": "en",
+  "image": "http://localhost:1313/papermod-cover.png","datePublished": "2026-07-13T00:00:00Z",
+  "dateModified": "2026-07-13T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/mr-robot_quotes_api/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "the008Killer",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header sticky-header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="the008Killer (Alt + H)">the008Killer</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/writeups" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/experience" title="Experience">
+                    <span>Experience</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/projects/">Projects</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Mr. Robot Quotes API
+    </h1>
+    <div class="post-meta">
+
+
+
+</div>
+  </header> 
+  <div class="post-content"><p>A full-stack AI quote API inspired by the TV series <strong>Mr. Robot</strong>. It generates dark, philosophical, hacker-style quotes and serves them as JSON endpoints and beautiful themed SVG cards — perfect for GitHub profile READMEs.</p>
+<p>I&rsquo;ve always been a huge fan of <strong>Mr. Robot</strong>. The show&rsquo;s atmosphere — paranoia, isolation, corporate control, and the quiet rebellion of people who see the system for what it really is — stuck with me long after finishing it. Elliot&rsquo;s monologues, Mr. Robot&rsquo;s rage, Whiterose&rsquo;s obsession with time&hellip; it all felt like poetry written in code.</p>
+<p>This project started as a simple idea: <em>what if I could generate original quotes that felt like they belonged in that universe?</em> I wanted something that wasn&rsquo;t just a static list of fan quotes, but a living system — one that could create new lines every day, style them like a terminal, and drop them straight into a GitHub README as a glowing SVG card.</p>
+<h2 id="features">Features<a hidden class="anchor" aria-hidden="true" href="#features">#</a></h2>
+<ul>
+<li>AI-generated Mr. Robot style quotes (Elliot, Mr. Robot, Darlene, Whiterose)</li>
+<li>Instant local fallback quotes when AI is slow or unavailable</li>
+<li>Daily quote endpoint (same quote all day)</li>
+<li>Random quote endpoint (fresh every request)</li>
+<li>SVG quote cards with 25+ themes (Dracula, Tokyo Night, Nord, Catppuccin, Cyberpunk, and more)</li>
+<li>Live terminal UI to preview quotes and copy embed URLs</li>
+<li>Custom domain: <a href="https://quotes.adhikariashwin0.com.np">quotes.adhikariashwin0.com.np</a></li>
+<li>GitHub Actions auto-updates README with the daily quote</li>
+</ul>
+<h2 id="tech-stack">Tech Stack<a hidden class="anchor" aria-hidden="true" href="#tech-stack">#</a></h2>
+<ul>
+<li>Node.js</li>
+<li>Express.js</li>
+<li>OpenRouter AI</li>
+<li>Vercel (serverless deployment)</li>
+<li>SVG generation with themed CSS</li>
+<li>Cloudflare DNS</li>
+<li>GitHub Actions</li>
+</ul>
+<h2 id="api-endpoints">API Endpoints<a hidden class="anchor" aria-hidden="true" href="#api-endpoints">#</a></h2>
+<ul>
+<li><code>GET /api/quote/random</code> — Fresh random quote</li>
+<li><code>GET /api/quote/daily</code> — Quote of the day</li>
+<li><code>GET /api/quote/svg?theme=mrrobot&amp;mode=daily</code> — Styled SVG card</li>
+</ul>
+<h2 id="links">Links<a hidden class="anchor" aria-hidden="true" href="#links">#</a></h2>
+<ul>
+<li><a href="https://quotes.adhikariashwin0.com.np">Live API</a></li>
+<li><a href="https://github.com/the008killer/mr-robot-quotes-api">GitHub Repository</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/node.js/">Node.js</a></li>
+      <li><a href="http://localhost:1313/tags/express/">Express</a></li>
+      <li><a href="http://localhost:1313/tags/vercel/">Vercel</a></li>
+      <li><a href="http://localhost:1313/tags/openrouter/">OpenRouter</a></li>
+      <li><a href="http://localhost:1313/tags/svg/">SVG</a></li>
+      <li><a href="http://localhost:1313/tags/api/">API</a></li>
+      <li><a href="http://localhost:1313/tags/mr-robot/">Mr-Robot</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2026 <a href="http://localhost:1313/">the008Killer</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Express on the008Killer</title>
-    <link>http://localhost:1313/tags/express/</link>
+    <link>https://adhikariashwin0.com.np/tags/express/</link>
     <description>Recent content in Express on the008Killer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     
     
-    <lastBuildDate>Thu, 10 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/express/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://adhikariashwin0.com.np/tags/express/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>UniFinder - University Course Discovery Platform</title>
-      <link>http://localhost:1313/projects/unifinder/</link>
+      <link>https://adhikariashwin0.com.np/projects/unifinder/</link>
       <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/projects/unifinder/</guid>
+      <guid>https://adhikariashwin0.com.np/projects/unifinder/</guid>
       <description>A full-stack web platform helping international students discover, filter, and discuss Bachelor and Master programs across 390+ universities in Germany and Austria</description>
     </item>
     
     <item>
       <title>Mr. Robot Quotes API</title>
-      <link>http://localhost:1313/projects/mr-robot_quotes_api/</link>
+      <link>https://adhikariashwin0.com.np/projects/mr-robot_quotes_api/</link>
       <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/projects/mr-robot_quotes_api/</guid>
+      <guid>https://adhikariashwin0.com.np/projects/mr-robot_quotes_api/</guid>
       <description>An AI-powered quote generator inspired by Mr. Robot, serving dark cinematic quotes as JSON and SVG cards for GitHub READMEs</description>
     </item>
     

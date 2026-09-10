@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>API on the008Killer</title>
-    <link>http://localhost:1313/tags/api/</link>
+    <link>https://adhikariashwin0.com.np/tags/api/</link>
     <description>Recent content in API on the008Killer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     
     
-    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://adhikariashwin0.com.np/tags/api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mr. Robot Quotes API</title>
-      <link>http://localhost:1313/projects/mr-robot_quotes_api/</link>
+      <link>https://adhikariashwin0.com.np/projects/mr-robot_quotes_api/</link>
       <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/projects/mr-robot_quotes_api/</guid>
+      <guid>https://adhikariashwin0.com.np/projects/mr-robot_quotes_api/</guid>
       <description>An AI-powered quote generator inspired by Mr. Robot, serving dark cinematic quotes as JSON and SVG cards for GitHub READMEs</description>
     </item>
     

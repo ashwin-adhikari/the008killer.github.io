@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Writeups on the008Killer</title>
-    <link>http://localhost:1313/writeups/</link>
+    <link>https://adhikariashwin0.com.np/writeups/</link>
     <description>Recent content in Writeups on the008Killer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     
     
-    <lastBuildDate>Sun, 02 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/writeups/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://adhikariashwin0.com.np/writeups/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF</title>
-      <link>http://localhost:1313/writeups/ctfs/</link>
+      <link>https://adhikariashwin0.com.np/writeups/ctfs/</link>
       <pubDate>Fri, 17 Jul 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/writeups/ctfs/</guid>
+      <guid>https://adhikariashwin0.com.np/writeups/ctfs/</guid>
       <description>Capture the Flag (CTF) in computer security is an exercise in which participants attempt to find text strings, called &amp;ldquo;flags&amp;rdquo;, which are secretly hidden in purposefully-vulnerable programs or websites.</description>
     </item>
     
     <item>
       <title>HackTheBox</title>
-      <link>http://localhost:1313/writeups/hackthebox/</link>
+      <link>https://adhikariashwin0.com.np/writeups/hackthebox/</link>
       <pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/writeups/hackthebox/</guid>
+      <guid>https://adhikariashwin0.com.np/writeups/hackthebox/</guid>
       <description>Hack The Box (HTB) is an online platform that provides hands-on cybersecurity training through real-world penetration testing challenges. It offers a variety of machines and challenges for users to test and improve their ethical hacking skills.</description>
     </item>
     
     <item>
       <title>Tryhackme</title>
-      <link>http://localhost:1313/writeups/tryhackme/</link>
+      <link>https://adhikariashwin0.com.np/writeups/tryhackme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/writeups/tryhackme/</guid>
+      <guid>https://adhikariashwin0.com.np/writeups/tryhackme/</guid>
       <description></description>
     </item>
     

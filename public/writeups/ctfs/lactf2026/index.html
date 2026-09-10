@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,16 +9,16 @@
 <meta name="keywords" content="lactf, lactf2026">
 <meta name="description" content="LA CTF was organized from Sat, 07 Feb. 2026 to Mon, 09 Feb. 2026, featuring challenges from different categories like Cryptography, Miscelleaneous, Reverse Engineering, Pwn and Web Exploitation. I participated with my team Blue Lock Eleven, got 133/955 rank overall.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/writeups/ctfs/lactf2026/">
+<link rel="canonical" href="https://adhikariashwin0.com.np/writeups/ctfs/lactf2026/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e0ec520298f6c84b5b6a52f757391346c066b1d17f71c1ea9fa29811db7a0893.css" integrity="sha256-4OxSApj2yEtbalL3VzkTRsBmsdF/ccHqn6KYEdt6CJM=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://adhikariashwin0.com.np/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://adhikariashwin0.com.np/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://adhikariashwin0.com.np/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://adhikariashwin0.com.np/apple-touch-icon.png">
+<link rel="mask-icon" href="https://adhikariashwin0.com.np/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/ctfs/lactf2026/">
+<link rel="alternate" hreflang="en" href="https://adhikariashwin0.com.np/writeups/ctfs/lactf2026/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,7 +70,7 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="http://localhost:1313/writeups/ctfs/lactf2026/">
+</script><meta property="og:url" content="https://adhikariashwin0.com.np/writeups/ctfs/lactf2026/">
   <meta property="og:site_name" content="the008Killer">
   <meta property="og:title" content="LACTF CTF 2026">
   <meta property="og:description" content="LA CTF was organized from Sat, 07 Feb. 2026 to Mon, 09 Feb. 2026, featuring challenges from different categories like Cryptography, Miscelleaneous, Reverse Engineering, Pwn and Web Exploitation. I participated with my team Blue Lock Eleven, got 133/955 rank overall.">
@@ -81,9 +81,9 @@
     <meta property="article:modified_time" content="2026-02-11T00:00:00+00:00">
     <meta property="article:tag" content="Lactf">
     <meta property="article:tag" content="Lactf2026">
-      <meta property="og:image" content="http://localhost:1313/papermod-cover.png">
+      <meta property="og:image" content="https://adhikariashwin0.com.np/papermod-cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://localhost:1313/papermod-cover.png">
+<meta name="twitter:image" content="https://adhikariashwin0.com.np/papermod-cover.png">
 <meta name="twitter:title" content="LACTF CTF 2026">
 <meta name="twitter:description" content="LA CTF was organized from Sat, 07 Feb. 2026 to Mon, 09 Feb. 2026, featuring challenges from different categories like Cryptography, Miscelleaneous, Reverse Engineering, Pwn and Web Exploitation. I participated with my team Blue Lock Eleven, got 133/955 rank overall.">
 
@@ -97,19 +97,19 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Writeups",
-      "item": "http://localhost:1313/writeups/"
+      "item": "https://adhikariashwin0.com.np/writeups/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "CTF",
-      "item": "http://localhost:1313/writeups/ctfs/"
+      "item": "https://adhikariashwin0.com.np/writeups/ctfs/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "LACTF CTF 2026",
-      "item": "http://localhost:1313/writeups/ctfs/lactf2026/"
+      "item": "https://adhikariashwin0.com.np/writeups/ctfs/lactf2026/"
     }
   ]
 }
@@ -127,18 +127,18 @@
   "articleBody": "Web/Blogler There was a login and register page and after registering a user we get into this web page where we have config editor which seems to take in yaml configuration and another upload blog section.\nAnalysing the contents of blogler.zip . ├── app.py ├── Dockerfile ├── static │ ├── main.js │ └── style.css └── templates ├── blog.html ├── index.html └── login.html The core vulnerability in this challenge lies in a logic flaw within the validate_conf function combined with the behavior of the display_name function and YAML anchors. Vulnerability LFI Check Bypass: The validate_conf function attempts to prevent Path Traversal by checking if the string ../ exists in the filename and ensuring the resolved path stays within the blogs directory. However, it only validates the state of the configuration at that moment. Shared object via YAML Anchors: Using YAML anchors (\u0026 and *), we can make a blog entry and the user configuration point to the same dictionary object in memory. Bypassing display_name(): The display_name function capitalizes each part and joins them, If a part starts with a non-alphabetical character (like . or /), capitalize() does nothing. By using a sequence like .._/_, we can construct a path traversal string that doesn’t contain the literal ../ (thus bypassing the check) Exploit blogs: - \u0026exploit title: \"Flag\" name: \"_.._/_.._/_.._/_.._/_.._/_.._/_./flag\" user: *exploit The string _.._/_.._/_.._/_.._/_.._/_.._/_./flag does not contain ../. During validation, pathlib treats the underscores as part of the directory names. Because of the YAML anchor (\u0026exploit and *exploit), the user object and the first blog object are the same dictionary in memory. display_name() function splits by _ into ['', '..', '/', '..', '/', '..', '/', '..', '/', '..', '/', '..', '/', './flag']. It capitalizes each letter but .., and / remain unchanged. ./flag remains ./flag (because it starts with a dot). It joins them into: ../../../../../.././flag. And we get the flag Crypto/Smol Cats I was a straight forward challenge gave us modulus(n), cipher(c) and public exponent(e) and we have to decode cipher and give it message(m) in hex.\nI used factor.db to find the factors of the modulus.\nSolution Submit the Proof of work and copy and paste the n, c and e calculate factors of n # copy and paste n,c, e from the instance n = 605209181152683570305169059628442346702992350480092763486139 e = 65537 c = 466838744699655278218446173999183015046193150877209850221109 # from factordb calculate factors of n p = 710534900243921085712136360791 q = 851765593702603463836875015229 phi = (p - 1) * (q - 1) d = pow(e, -1, phi) m = pow(c, d, n) print(m) # output: 216414036956796911789754134326510711369461877745009347782076 # submit this value Misc/Cat Bomb! This was an OSINT challenge, we have cat-bomb.jpeg which shows us the location where photograph was taken. Using reverse image search we got the location of the image. Using Google maps to pinpoint the location. After much digging around Google Street View in Fushimi Inari Shrine, I finally found the exact location To get the exact digits, the maps has that exact 7 decimal places in the url portion: /@34.9681538,135.7773153\n",
   "wordCount" : "496",
   "inLanguage": "en",
-  "image": "http://localhost:1313/papermod-cover.png","datePublished": "2026-02-11T00:00:00Z",
+  "image": "https://adhikariashwin0.com.np/papermod-cover.png","datePublished": "2026-02-11T00:00:00Z",
   "dateModified": "2026-02-11T00:00:00Z",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/writeups/ctfs/lactf2026/"
+    "@id": "https://adhikariashwin0.com.np/writeups/ctfs/lactf2026/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "the008Killer",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.ico"
+      "url": "https://adhikariashwin0.com.np/favicon.ico"
     }
   }
 }
@@ -160,7 +160,7 @@
 <header class="header sticky-header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="the008Killer (Alt + H)">the008Killer</a>
+            <a href="https://adhikariashwin0.com.np/" accesskey="h" title="the008Killer (Alt + H)">the008Killer</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -188,32 +188,32 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/about" title="About">
+                <a href="https://adhikariashwin0.com.np/about" title="About">
                     <span>About</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/writeups" title="Writeups">
+                <a href="https://adhikariashwin0.com.np/writeups" title="Writeups">
                     <span>Writeups</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/projects" title="Projects">
+                <a href="https://adhikariashwin0.com.np/projects" title="Projects">
                     <span>Projects</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/experience" title="Experience">
+                <a href="https://adhikariashwin0.com.np/experience" title="Experience">
                     <span>Experience</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://adhikariashwin0.com.np/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags" title="Tags">
+                <a href="https://adhikariashwin0.com.np/tags" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -224,7 +224,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/ctfs/">CTF</a></div>
+    <div class="breadcrumbs"><a href="https://adhikariashwin0.com.np/">Home</a>&nbsp;»&nbsp;<a href="https://adhikariashwin0.com.np/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="https://adhikariashwin0.com.np/writeups/ctfs/">CTF</a></div>
     <h1 class="post-title entry-hint-parent">
       LACTF CTF 2026
     </h1>
@@ -348,16 +348,16 @@ It joins them into: <code>../../../../../.././flag.</code></li>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/lactf/">Lactf</a></li>
-      <li><a href="http://localhost:1313/tags/lactf2026/">Lactf2026</a></li>
+      <li><a href="https://adhikariashwin0.com.np/tags/lactf/">Lactf</a></li>
+      <li><a href="https://adhikariashwin0.com.np/tags/lactf2026/">Lactf2026</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/writeups/ctfs/ehaxctf/">
+  <a class="prev" href="https://adhikariashwin0.com.np/writeups/ctfs/ehaxctf/">
     <span class="title">« Prev</span>
     <br>
     <span>EHAX CTF 2026</span>
   </a>
-  <a class="next" href="http://localhost:1313/writeups/ctfs/pascalctf/">
+  <a class="next" href="https://adhikariashwin0.com.np/writeups/ctfs/pascalctf/">
     <span class="title">Next »</span>
     <br>
     <span>Pascal CTF</span>
@@ -369,7 +369,7 @@ It joins them into: <code>../../../../../.././flag.</code></li>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2026 <a href="http://localhost:1313/">the008Killer</a></span>
+    <span>&copy; 2026 <a href="https://adhikariashwin0.com.np/">the008Killer</a></span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

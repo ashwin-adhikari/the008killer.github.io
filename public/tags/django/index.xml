@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Django on the008Killer</title>
-    <link>http://localhost:1313/tags/django/</link>
+    <link>https://adhikariashwin0.com.np/tags/django/</link>
     <description>Recent content in Django on the008Killer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     
     
-    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/django/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://adhikariashwin0.com.np/tags/django/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Holiday Remainder</title>
-      <link>http://localhost:1313/projects/holiday-remainder/</link>
+      <link>https://adhikariashwin0.com.np/projects/holiday-remainder/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/projects/holiday-remainder/</guid>
+      <guid>https://adhikariashwin0.com.np/projects/holiday-remainder/</guid>
       <description>A web application that allows us to view upcoming holidays and events</description>
     </item>
     

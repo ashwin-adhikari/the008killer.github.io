@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,16 +9,16 @@
 <meta name="keywords" content="HTB, linux, CVE-2025-32463">
 <meta name="description" content="Expressway is an easy linux machine released on 20 Sep 2025 by darkmaddy.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/writeups/hackthebox/expressway/">
+<link rel="canonical" href="https://adhikariashwin0.com.np/writeups/hackthebox/expressway/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e0ec520298f6c84b5b6a52f757391346c066b1d17f71c1ea9fa29811db7a0893.css" integrity="sha256-4OxSApj2yEtbalL3VzkTRsBmsdF/ccHqn6KYEdt6CJM=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://adhikariashwin0.com.np/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://adhikariashwin0.com.np/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://adhikariashwin0.com.np/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://adhikariashwin0.com.np/apple-touch-icon.png">
+<link rel="mask-icon" href="https://adhikariashwin0.com.np/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/hackthebox/expressway/">
+<link rel="alternate" hreflang="en" href="https://adhikariashwin0.com.np/writeups/hackthebox/expressway/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,7 +70,7 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="http://localhost:1313/writeups/hackthebox/expressway/">
+</script><meta property="og:url" content="https://adhikariashwin0.com.np/writeups/hackthebox/expressway/">
   <meta property="og:site_name" content="the008Killer">
   <meta property="og:title" content="HTB-Expressway">
   <meta property="og:description" content="Expressway is an easy linux machine released on 20 Sep 2025 by darkmaddy.">
@@ -82,9 +82,9 @@
     <meta property="article:tag" content="HTB">
     <meta property="article:tag" content="Linux">
     <meta property="article:tag" content="CVE-2025-32463">
-    <meta property="og:image" content="http://localhost:1313/writeups/hackthebox/expressway/writeups/HacktheBox/expressway-cover.png">
+    <meta property="og:image" content="https://adhikariashwin0.com.np/writeups/hackthebox/expressway/writeups/HacktheBox/expressway-cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://localhost:1313/writeups/hackthebox/expressway/writeups/HacktheBox/expressway-cover.png">
+<meta name="twitter:image" content="https://adhikariashwin0.com.np/writeups/hackthebox/expressway/writeups/HacktheBox/expressway-cover.png">
 <meta name="twitter:title" content="HTB-Expressway">
 <meta name="twitter:description" content="Expressway is an easy linux machine released on 20 Sep 2025 by darkmaddy.">
 
@@ -98,19 +98,19 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Writeups",
-      "item": "http://localhost:1313/writeups/"
+      "item": "https://adhikariashwin0.com.np/writeups/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "HackTheBox",
-      "item": "http://localhost:1313/writeups/hackthebox/"
+      "item": "https://adhikariashwin0.com.np/writeups/hackthebox/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "HTB-Expressway",
-      "item": "http://localhost:1313/writeups/hackthebox/expressway/"
+      "item": "https://adhikariashwin0.com.np/writeups/hackthebox/expressway/"
     }
   ]
 }
@@ -128,18 +128,18 @@
   "articleBody": "🛠 Overview Category\rInfo\rMachine NameExpressway\rDifficultyEasy\rRelease Date20 Sep 2025\rAuthordakkmaddy\rOSLinux\rPwned Date21 Sep 2025\r1. Reconnaissance Initial reconnaissance was performed using RustScan to quickly identify open TCP ports on the target 10.10.11.87. RustScan results:\nOpen ports discovered: - 22/tcp (SSH) Observations from RustScan Host responded to ICMP echo requests (TTL=63). Only SSH was open over TCP. File descriptor limits were noted to be low, suggesting potential speed issues in large scans. A follow-up UDP scan revealed:\n500/udp open isakmp - XAUTH enabled - Dead Peer Detection (DPD) v1.0 This indicated an active VPN/IKE service running on UDP port 500.\n2. IKE Enumeration Since the host had IKE/XAUTH enabled, an IKE scan was performed using ike-scan:\nsudo ike-scan --aggressive --pskcrack=ike.psk 10.10.11.87 Results:\nHost returned an aggressive mode handshake: Encryption: 3DES Hash: SHA1 Group: 2/modp1024 Auth: PSK (XAUTH) KeyExchange: 128 bytes Nonce: 32 bytes ID: ike@expressway.htb Analysis:\nThe PSK-based authentication allowed offline password cracking using --pskcrack. The PSK file was saved as ike.psk and successfully cracked, allowing SSH access. 3. User Access SSH into the user account using the cracked credentials:\nssh ike@expressway.htb Once inside, enumeration was performed to identify privilege escalation vectors.\n4. Privilege Escalation 4.1. SUID Binaries Enumeration Search for SUID binaries:\nfind / -perm -4000 -type f 2\u003e/dev/null The /usr/local/bin/sudo binary was checked for version:\nsudo --version Finding:\nVersion was vulnerable to CVE-2025-32463. 4.2. CVE-2025-32463 Analysis Source: Stratascale CRU Description: Sudo improperly loads NSS shared objects when performing chroot operations. An unprivileged user can trick Sudo into loading an arbitrary shared object, resulting in arbitrary code execution as root.\nImpact: Local Privilege Escalation (root shell) possible. 4.3. Exploit Execution A Proof-of-Concept exploit sudo-chwoot.sh was used:\nSteps performed by the script: Creates a temporary working directory. Compiles a malicious shared library that runs /bin/bash as root. Configures a fake nsswitch.conf to load the malicious library. Executes sudo -R woot woot to trigger the vulnerability. Cleans up temporary files. Result:\nA root shell was obtained on the target machine. 5. Conclusion Summary of Exploitation Path Step Action Outcome Recon RustScan TCP/UDP scan Found SSH (22/tcp) and IKE (500/udp) Enumeration IKE scan + PSK crack Obtained user ike credentials Access SSH login as ike User shell obtained Privilege Escalation SUID enumeration /usr/local/bin/sudo identified as exploitable Exploitation CVE-2025-32463 PoC Root shell obtained Key Takeaways: The combination of IKE PSK enumeration and sudo NSS library vulnerability allowed full compromise. Understanding NSS shared object loading is critical for identifying this type of local privilege escalation. Proper patching of Sudo and restricting user access to /usr/local/bin/sudo can mitigate this vector. 6. References RustScan: https://github.com/RustScan/RustScan ike-scan: http://www.nta-monitor.com/tools/ike-scan/ CVE-2025-32463 advisory: Stratascale Write-up prepared by: the008killer\n",
   "wordCount" : "440",
   "inLanguage": "en",
-  "image":"http://localhost:1313/writeups/hackthebox/expressway/writeups/HacktheBox/expressway-cover.png","datePublished": "2026-03-09T00:00:00Z",
+  "image":"https://adhikariashwin0.com.np/writeups/hackthebox/expressway/writeups/HacktheBox/expressway-cover.png","datePublished": "2026-03-09T00:00:00Z",
   "dateModified": "2026-03-09T00:00:00Z",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/writeups/hackthebox/expressway/"
+    "@id": "https://adhikariashwin0.com.np/writeups/hackthebox/expressway/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "the008Killer",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.ico"
+      "url": "https://adhikariashwin0.com.np/favicon.ico"
     }
   }
 }
@@ -161,7 +161,7 @@
 <header class="header sticky-header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="the008Killer (Alt + H)">the008Killer</a>
+            <a href="https://adhikariashwin0.com.np/" accesskey="h" title="the008Killer (Alt + H)">the008Killer</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -189,32 +189,32 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/about" title="About">
+                <a href="https://adhikariashwin0.com.np/about" title="About">
                     <span>About</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/writeups" title="Writeups">
+                <a href="https://adhikariashwin0.com.np/writeups" title="Writeups">
                     <span>Writeups</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/projects" title="Projects">
+                <a href="https://adhikariashwin0.com.np/projects" title="Projects">
                     <span>Projects</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/experience" title="Experience">
+                <a href="https://adhikariashwin0.com.np/experience" title="Experience">
                     <span>Experience</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://adhikariashwin0.com.np/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags" title="Tags">
+                <a href="https://adhikariashwin0.com.np/tags" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -225,7 +225,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/hackthebox/">HackTheBox</a></div>
+    <div class="breadcrumbs"><a href="https://adhikariashwin0.com.np/">Home</a>&nbsp;»&nbsp;<a href="https://adhikariashwin0.com.np/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="https://adhikariashwin0.com.np/writeups/hackthebox/">HackTheBox</a></div>
     <h1 class="post-title entry-hint-parent">
       HTB-Expressway
     </h1>
@@ -234,7 +234,7 @@
     </div>
   </header> 
 <figure class="entry-cover">
-        <img loading="eager" src="http://localhost:1313/writeups/HacktheBox/expressway-cover.png" alt="HTB Expressway cover image">
+        <img loading="eager" src="https://adhikariashwin0.com.np/writeups/HacktheBox/expressway-cover.png" alt="HTB Expressway cover image">
         
 </figure><div class="toc">
     <details >
@@ -443,17 +443,17 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/htb/">HTB</a></li>
-      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
-      <li><a href="http://localhost:1313/tags/cve-2025-32463/">CVE-2025-32463</a></li>
+      <li><a href="https://adhikariashwin0.com.np/tags/htb/">HTB</a></li>
+      <li><a href="https://adhikariashwin0.com.np/tags/linux/">Linux</a></li>
+      <li><a href="https://adhikariashwin0.com.np/tags/cve-2025-32463/">CVE-2025-32463</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/writeups/hackthebox/pterodactyl/">
+  <a class="prev" href="https://adhikariashwin0.com.np/writeups/hackthebox/pterodactyl/">
     <span class="title">« Prev</span>
     <br>
     <span>HTB-Pterodactyl</span>
   </a>
-  <a class="next" href="http://localhost:1313/writeups/ctfs/ehaxctf/">
+  <a class="next" href="https://adhikariashwin0.com.np/writeups/ctfs/ehaxctf/">
     <span class="title">Next »</span>
     <br>
     <span>EHAX CTF 2026</span>
@@ -465,7 +465,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2026 <a href="http://localhost:1313/">the008Killer</a></span>
+    <span>&copy; 2026 <a href="https://adhikariashwin0.com.np/">the008Killer</a></span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

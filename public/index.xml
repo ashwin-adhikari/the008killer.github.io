@@ -8,7 +8,7 @@
     <language>en-us</language>
     
     
-    <lastBuildDate>Sun, 02 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Omni CTF 2026 Quals</title>
       <link>http://localhost:1313/writeups/ctfs/omnictf/</link>
@@ -97,6 +97,15 @@
       
       <guid>http://localhost:1313/projects/sms-vehicle-tracking/</guid>
       <description>A vehicle tracking system that uses SMS for real-time location updates and monitoring</description>
+    </item>
+    
+    <item>
+      <title>UniFinder - University Course Discovery Platform</title>
+      <link>http://localhost:1313/projects/unifinder/</link>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/unifinder/</guid>
+      <description>A full-stack web platform helping international students discover, filter, and discuss Bachelor and Master programs across 390+ universities in Germany and Austria</description>
     </item>
     
     <item>

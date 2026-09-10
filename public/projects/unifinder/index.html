@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>UniFinder - University Course Discovery Platform | the008Killer</title>
+<meta name="keywords" content="React, Node.js, Express, PostgreSQL, Socket.io, Vite, TailwindCSS, Neon, Render, Vercel">
+<meta name="description" content="A full-stack web platform helping international students discover, filter, and discuss Bachelor and Master programs across 390&#43; universities in Germany and Austria">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/projects/unifinder/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e0ec520298f6c84b5b6a52f757391346c066b1d17f71c1ea9fa29811db7a0893.css" integrity="sha256-4OxSApj2yEtbalL3VzkTRsBmsdF/ccHqn6KYEdt6CJM=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/unifinder/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/projects/unifinder/">
+  <meta property="og:site_name" content="the008Killer">
+  <meta property="og:title" content="UniFinder - University Course Discovery Platform">
+  <meta property="og:description" content="A full-stack web platform helping international students discover, filter, and discuss Bachelor and Master programs across 390&#43; universities in Germany and Austria">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2026-09-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-10T00:00:00+00:00">
+    <meta property="article:tag" content="React">
+    <meta property="article:tag" content="Node.js">
+    <meta property="article:tag" content="Express">
+    <meta property="article:tag" content="PostgreSQL">
+    <meta property="article:tag" content="Socket.io">
+    <meta property="article:tag" content="Vite">
+      <meta property="og:image" content="http://localhost:1313/papermod-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/papermod-cover.png">
+<meta name="twitter:title" content="UniFinder - University Course Discovery Platform">
+<meta name="twitter:description" content="A full-stack web platform helping international students discover, filter, and discuss Bachelor and Master programs across 390&#43; universities in Germany and Austria">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "http://localhost:1313/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "UniFinder - University Course Discovery Platform",
+      "item": "http://localhost:1313/projects/unifinder/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "UniFinder - University Course Discovery Platform",
+  "name": "UniFinder - University Course Discovery Platform",
+  "description": "A full-stack web platform helping international students discover, filter, and discuss Bachelor and Master programs across 390+ universities in Germany and Austria",
+  "keywords": [
+    "React", "Node.js", "Express", "PostgreSQL", "Socket.io", "Vite", "TailwindCSS", "Neon", "Render", "Vercel"
+  ],
+  "articleBody": "A full-stack university discovery platform built for international students navigating the overwhelming landscape of German and Austrian higher education. Search through 1,500+ real programs, filter by degree, language, tuition, and subject — then jump into course-specific chat rooms to talk with fellow applicants in real time.\nThe idea came from a very real frustration. Every year, hundreds of thousands of students from South Asia, Africa, and the Middle East try to find the right program in Germany. The process is brutal - you’re bouncing between DAAD, university websites, StudyCheck forums, and WhatsApp groups, trying to piece together whether a program is taught in English, what the actual tuition is, whether you need TestDaF C1 or just B2, and whether anyone else from your country has actually applied there.\nI wanted to build the tool I wish I had. Not another generic university ranking site, but a search engine for courses — one that lets you type “Embedded Systems” or “Renewable Energy” and instantly see every matching program across 390 universities, with real admission requirements, tuition fees, and a chat room full of students asking the same questions you are.\nFeatures Smart Search \u0026 Filtering — Full-text keyword search with 400ms client-side debouncing across course names, universities, subjects, and cities. Broad filter sidebar for Degree (Bachelor/Master), Language (English/German/Mixed), University Type (Public/Private/Church), Subject Area, and Max Tuition Fee. Real University Data — 388 German universities sourced from the official HRK/Destatis registry and 5+ top Austrian institutions (Uni Wien, TU Wien, WU, Innsbruck, MCI). 1,500+ study programs from the DAAD International Programmes dataset. Program \u0026 University Profiles — Detailed course pages with admission requirements, German/English proficiency levels (A1–C2), semester start dates, duration, tuition fees, and direct links to official DAAD course pages. Dynamic university logo fetching with monogram fallbacks. Real-Time Peer Chat — Socket.io powered chat rooms automatically created for every course. Four discussion sections per room: #General, #Admissions, #Courses \u0026 Studies, and #Student Life. WhatsApp-style floating date headers and auto-localized timestamps. User Authentication \u0026 Security — JWT-based registration and login (email or username). Password strength meter with real-time validation. Native RFC 6238 Two-Factor Authentication (2FA) with QR code generation for Google Authenticator/Authy. Forgot password flow with tokenized reset links. Bookmarks \u0026 Notifications — Save courses with a single click from search results or detail pages. Real-time notification bell for new chat messages and @mentions. Persistent bookmark management from the profile dashboard. Mobile-First Responsive Design — Fully adaptive layout down to 320px viewports with zero horizontal overflow. Custom SVG micro-icon system replacing heavy icon libraries. Shimmer skeleton loaders for smooth perceived performance. Tech Stack Frontend: React 19, Vite, Tailwind CSS, React Router v7, Axios, Socket.io Client Backend: Node.js, Express.js, Socket.io, JWT, bcryptjs Database: PostgreSQL (Neon serverless) 2FA Engine: Native Node.js crypto (RFC 6238 TOTP — zero external auth dependencies) Email: Nodemailer (custom domain SMTP via no-reply@adhikariashwin0.com.np) Deployment: Vercel (frontend), Render (backend + WebSockets), Neon (database) Security: express-rate-limit on auth endpoints, CORS policy, TIMESTAMPTZ for timezone-safe timestamps Frontend The frontend is a single-page application built with Vite and React Router, using URL search parameters for filter state persistence and shareable links. The backend serves REST endpoints for search, filtering, authentication, bookmarks, and notifications, while Socket.io handles real-time chat messaging with section-based room isolation. The database uses indexed queries on subject, degree, language, city, and university type for sub-100ms search response times.\nData Pipeline University data was sourced from the official German HRK/Destatis higher education registry (390 institutions) and seeded into PostgreSQL with proper encoding detection (UTF-8/Windows-1252 auto-detection for German umlauts). Course data was ingested from the DAAD International Programmes Kaggle dataset (2,215 records), matched to universities via in-memory fuzzy name resolution, and batch-inserted in groups of 100 for optimal write performance. Chat groups were auto-generated for every university-program combination.\nAPI Endpoints GET /api/programs?q=\u0026degree=\u0026language=\u0026subject=\u0026city=\u0026uniType=\u0026maxFee=\u0026page=\u0026limit= — Search and filter courses GET /api/programs/:id — Course detail with admission requirements GET /api/universities — List universities with course counts GET /api/universities/:id — University profile with all programs GET /api/filters — Available filter options (subjects, cities, states) POST /api/auth/register — User registration with password strength validation POST /api/auth/login — Login with email/username + optional 2FA challenge POST /api/2fa/setup — Generate TOTP secret and QR code POST /api/2fa/verify-setup — Activate 2FA with authenticator code POST /api/password/forgot — Request password reset email POST /api/password/reset/:token — Set new password POST /api/bookmarks/toggle/:programId — Save or remove a course GET /api/chat/groups/:groupId/messages?section= — Fetch chat history by section GET /api/notifications — User notification feed Links Live App GitHub Repository ",
+  "wordCount" : "743",
+  "inLanguage": "en",
+  "image": "http://localhost:1313/papermod-cover.png","datePublished": "2026-09-10T00:00:00Z",
+  "dateModified": "2026-09-10T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/projects/unifinder/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "the008Killer",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header sticky-header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="the008Killer (Alt + H)">the008Killer</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/writeups" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/experience" title="Experience">
+                    <span>Experience</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/projects/">Projects</a></div>
+    <h1 class="post-title entry-hint-parent">
+      UniFinder - University Course Discovery Platform
+    </h1>
+    <div class="post-meta">
+
+
+
+</div>
+  </header> 
+  <div class="post-content"><p>A full-stack university discovery platform built for international students navigating the overwhelming landscape of German and Austrian higher education. Search through 1,500+ real programs, filter by degree, language, tuition, and subject — then jump into course-specific chat rooms to talk with fellow applicants in real time.</p>
+<p>The idea came from a very real frustration. Every year, hundreds of thousands of students from South Asia, Africa, and the Middle East try to find the right program in Germany. The process is brutal - you&rsquo;re bouncing between DAAD, university websites, StudyCheck forums, and WhatsApp groups, trying to piece together whether a program is taught in English, what the actual tuition is, whether you need TestDaF C1 or just B2, and whether anyone else from your country has actually applied there.</p>
+<p>I wanted to build the tool I wish I had. Not another generic university ranking site, but a <strong>search engine for courses</strong> — one that lets you type &ldquo;Embedded Systems&rdquo; or &ldquo;Renewable Energy&rdquo; and instantly see every matching program across 390 universities, with real admission requirements, tuition fees, and a chat room full of students asking the same questions you are.</p>
+<h2 id="features">Features<a hidden class="anchor" aria-hidden="true" href="#features">#</a></h2>
+<ul>
+<li><strong>Smart Search &amp; Filtering</strong> — Full-text keyword search with 400ms client-side debouncing across course names, universities, subjects, and cities. Broad filter sidebar for Degree (Bachelor/Master), Language (English/German/Mixed), University Type (Public/Private/Church), Subject Area, and Max Tuition Fee.</li>
+<li><strong>Real University Data</strong> — 388 German universities sourced from the official HRK/Destatis registry and 5+ top Austrian institutions (Uni Wien, TU Wien, WU, Innsbruck, MCI). 1,500+ study programs from the DAAD International Programmes dataset.</li>
+<li><strong>Program &amp; University Profiles</strong> — Detailed course pages with admission requirements, German/English proficiency levels (A1–C2), semester start dates, duration, tuition fees, and direct links to official DAAD course pages. Dynamic university logo fetching with monogram fallbacks.</li>
+<li><strong>Real-Time Peer Chat</strong> — Socket.io powered chat rooms automatically created for every course. Four discussion sections per room: #General, #Admissions, #Courses &amp; Studies, and #Student Life. WhatsApp-style floating date headers and auto-localized timestamps.</li>
+<li><strong>User Authentication &amp; Security</strong> — JWT-based registration and login (email or username). Password strength meter with real-time validation. Native RFC 6238 Two-Factor Authentication (2FA) with QR code generation for Google Authenticator/Authy. Forgot password flow with tokenized reset links.</li>
+<li><strong>Bookmarks &amp; Notifications</strong> — Save courses with a single click from search results or detail pages. Real-time notification bell for new chat messages and @mentions. Persistent bookmark management from the profile dashboard.</li>
+<li><strong>Mobile-First Responsive Design</strong> — Fully adaptive layout down to 320px viewports with zero horizontal overflow. Custom SVG micro-icon system replacing heavy icon libraries. Shimmer skeleton loaders for smooth perceived performance.</li>
+</ul>
+<h2 id="tech-stack">Tech Stack<a hidden class="anchor" aria-hidden="true" href="#tech-stack">#</a></h2>
+<ul>
+<li><strong>Frontend:</strong> React 19, Vite, Tailwind CSS, React Router v7, Axios, Socket.io Client</li>
+<li><strong>Backend:</strong> Node.js, Express.js, Socket.io, JWT, bcryptjs</li>
+<li><strong>Database:</strong> PostgreSQL (Neon serverless)</li>
+<li><strong>2FA Engine:</strong> Native Node.js <code>crypto</code> (RFC 6238 TOTP — zero external auth dependencies)</li>
+<li><strong>Email:</strong> Nodemailer (custom domain SMTP via <code>no-reply@adhikariashwin0.com.np</code>)</li>
+<li><strong>Deployment:</strong> Vercel (frontend), Render (backend + WebSockets), Neon (database)</li>
+<li><strong>Security:</strong> express-rate-limit on auth endpoints, CORS policy, TIMESTAMPTZ for timezone-safe timestamps</li>
+</ul>
+<h2 id="frontend">Frontend<a hidden class="anchor" aria-hidden="true" href="#frontend">#</a></h2>
+<p>The frontend is a single-page application built with Vite and React Router, using URL search parameters for filter state persistence and shareable links. The backend serves REST endpoints for search, filtering, authentication, bookmarks, and notifications, while Socket.io handles real-time chat messaging with section-based room isolation. The database uses indexed queries on subject, degree, language, city, and university type for sub-100ms search response times.</p>
+<h2 id="data-pipeline">Data Pipeline<a hidden class="anchor" aria-hidden="true" href="#data-pipeline">#</a></h2>
+<p>University data was sourced from the official German HRK/Destatis higher education registry (390 institutions) and seeded into PostgreSQL with proper encoding detection (UTF-8/Windows-1252 auto-detection for German umlauts). Course data was ingested from the DAAD International Programmes Kaggle dataset (2,215 records), matched to universities via in-memory fuzzy name resolution, and batch-inserted in groups of 100 for optimal write performance. Chat groups were auto-generated for every university-program combination.</p>
+<h2 id="api-endpoints">API Endpoints<a hidden class="anchor" aria-hidden="true" href="#api-endpoints">#</a></h2>
+<ul>
+<li><code>GET /api/programs?q=&amp;degree=&amp;language=&amp;subject=&amp;city=&amp;uniType=&amp;maxFee=&amp;page=&amp;limit=</code> — Search and filter courses</li>
+<li><code>GET /api/programs/:id</code> — Course detail with admission requirements</li>
+<li><code>GET /api/universities</code> — List universities with course counts</li>
+<li><code>GET /api/universities/:id</code> — University profile with all programs</li>
+<li><code>GET /api/filters</code> — Available filter options (subjects, cities, states)</li>
+<li><code>POST /api/auth/register</code> — User registration with password strength validation</li>
+<li><code>POST /api/auth/login</code> — Login with email/username + optional 2FA challenge</li>
+<li><code>POST /api/2fa/setup</code> — Generate TOTP secret and QR code</li>
+<li><code>POST /api/2fa/verify-setup</code> — Activate 2FA with authenticator code</li>
+<li><code>POST /api/password/forgot</code> — Request password reset email</li>
+<li><code>POST /api/password/reset/:token</code> — Set new password</li>
+<li><code>POST /api/bookmarks/toggle/:programId</code> — Save or remove a course</li>
+<li><code>GET /api/chat/groups/:groupId/messages?section=</code> — Fetch chat history by section</li>
+<li><code>GET /api/notifications</code> — User notification feed</li>
+</ul>
+<h2 id="links">Links<a hidden class="anchor" aria-hidden="true" href="#links">#</a></h2>
+<ul>
+<li><a href="https://adhikariashwin0.com.np/unifinder/">Live App</a></li>
+<li><a href="https://github.com/the008killer/uni-finder">GitHub Repository</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/react/">React</a></li>
+      <li><a href="http://localhost:1313/tags/node.js/">Node.js</a></li>
+      <li><a href="http://localhost:1313/tags/express/">Express</a></li>
+      <li><a href="http://localhost:1313/tags/postgresql/">PostgreSQL</a></li>
+      <li><a href="http://localhost:1313/tags/socket.io/">Socket.io</a></li>
+      <li><a href="http://localhost:1313/tags/vite/">Vite</a></li>
+      <li><a href="http://localhost:1313/tags/tailwindcss/">TailwindCSS</a></li>
+      <li><a href="http://localhost:1313/tags/neon/">Neon</a></li>
+      <li><a href="http://localhost:1313/tags/render/">Render</a></li>
+      <li><a href="http://localhost:1313/tags/vercel/">Vercel</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2026 <a href="http://localhost:1313/">the008Killer</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
